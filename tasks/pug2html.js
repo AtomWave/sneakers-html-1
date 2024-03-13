@@ -1,6 +1,6 @@
 import { config } from "./../gulp-config.js";
 
-const { pug_2_html, plumber_watch, browser_2_server, newer_2_build } = config.tasks;
+const { pug_2_html, plumber_watch, browser_2_server } = config.tasks;
 const { src, dest, watch, series } = config.gulp;
 const { build, pug } = config.paths;
 
@@ -31,5 +31,5 @@ export const pug2html = (done) => {
 };
 
 export const watcherPug = () => {
-  watch(`${pug.all}**/*.pug`, series(pug2html, browser_2_server.reload));
-};
+  watch(`${pug.all}**/*.pug`).on('change', series(pug2html, browser_2_server.reload));
+}
