@@ -1,49 +1,35 @@
-// import { config } from "./../gulp-config.js";
+import { config } from "./../gulp-config.js";
 
-// const { pug2html } = config.tasks;
-// const { src, dest } = config.gulp;
-// const { source, build } = config.paths;
+const { pug_2_html, plumber_watch, browser_2_server, newer_2_build } = config.tasks;
+const { src, dest, watch, series } = config.gulp;
+const { build, pug } = config.paths;
 
-// async function pugTask() {
-// 	(function () {
-// 		return (
-// 			src(`${source}/pug/pages/**/*.pug`)
-// 			.pipe(pug2html({ pretty: true }))
-// 			.pipe(dest(`${build}pages`))
-//       )
-// 	})
-//   ();
+function pagesPug() {
+  return (
+    src(`${pug.pages}`)
+      .pipe(plumber_watch())
+      .pipe(pug_2_html({ pretty: true }))
+      .pipe(dest(`${build}pages`))
+      .pipe(browser_2_server.stream())
+  )
+};
 
-// 	return (
-// 		src(`${source}pug/index.pug`)
-// 		.pipe(pug2html({ pretty: true }))
-// 		.pipe(dest(`${build}`))
-// 		.pipe(src(`${source}pug/pages/**/*.pug`))
-// 		.pipe(pug({ pretty: true }))
-// 		.pipe(dest(`${build}pages`))
-//   );
-// }
+function mainPug() {
+  return (
+    src(`${pug.main}`)
+      .pipe(plumber_watch())
+      .pipe(pug_2_html({ pretty: true }))
+      .pipe(dest(`${build}`))
+      .pipe(browser_2_server.stream())
+  )
+};
 
-// export default pugTask;
+export const pug2html = (done) => {
+  pagesPug();
+  mainPug();
+  done();
+};
 
-import gulp from "gulp";
-import pug from "gulp-pug";
-
-async function pug2html() {
-	(function () {
-		return gulp
-			.src("source/pug/pages/**/*.pug")
-			.pipe(pug({ pretty: true }))
-			.pipe(gulp.dest("build/pages"));
-	})();
-
-	return gulp
-		.src("source/pug/index.pug")
-		.pipe(pug({ pretty: true }))
-		.pipe(gulp.dest("build"))
-		.pipe(gulp.src("source/pug/pages/**/*.pug"))
-		.pipe(pug({ pretty: true }))
-		.pipe(gulp.dest("build/pages"));
-}
-
-export default pug2html;
+export const watcherPug = () => {
+  watch(`${pug.all}**/*.pug`, series(pug2html, browser_2_server.reload));
+};
