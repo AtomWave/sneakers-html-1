@@ -4,10 +4,12 @@ import pug2html from 'gulp-pug';
 import plumber from 'gulp-plumber';
 import newer from 'gulp-newer';
 import browser from 'browser-sync';
+import optimImg from 'sharp';
 
 const { src, dest, watch, series, parallel } = gulp;
 
 export const config = {
+
   paths: {
     source: 'source/',
     build: 'build/',
@@ -29,6 +31,7 @@ export const config = {
     pug_2_html: pug2html,
     plumber_watch: plumber,
     newer_2_build: newer,
-    browser_2_server: browser
+    browser_2_server: browser,
+    		optimImg: optimImg
   }
 }
