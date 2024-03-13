@@ -5,13 +5,16 @@
 	"description": "project command about sneakers",
 	"main": "gulp-config.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "gulp"
 	},
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
 		"gulp-htmlmin": "^5.0.1",
-		"gulp-pug": "^5.0.0"
+		"gulp-pug": "^5.0.0",
+		"gulp-ttf2woff": "^1.1.1",
+		"gulp-ttf2woff2": "^4.0.1"
 	},
 	"dependencies": {
 		"gulp": "^4.0.2"
