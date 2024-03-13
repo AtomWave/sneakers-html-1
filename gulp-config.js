@@ -2,7 +2,6 @@ import gulp from 'gulp';
 import minify_html from 'gulp-htmlmin';
 import pug2html from 'gulp-pug';
 import plumber from 'gulp-plumber';
-import newer from 'gulp-newer';
 import browser from 'browser-sync';
 import optimImg from 'sharp';
 
@@ -30,8 +29,7 @@ export const config = {
     minify_html: minify_html,
     pug_2_html: pug2html,
     plumber_watch: plumber,
-    newer_2_build: newer,
     browser_2_server: browser,
-    		optimImg: optimImg
+    optimImg: optimImg
   }
 }

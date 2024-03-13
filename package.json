@@ -15,31 +15,13 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-plumber": "^1.2.1",
     "gulp-pug": "^5.0.0",
-    "npm": "^10.5.0"
+    "npm": "^10.5.0",
+    "gulp-sharp-responsive": "^0.4.1",
+    "sharp": "^0.33.2",
+    "gulp-ttf2woff": "^1.1.1",
+    "gulp-ttf2woff2": "^4.0.1"
   },
   "dependencies": {
     "gulp": "^4.0.2"
   }
-	"name": "sneakers",
-	"version": "1.0.0",
-	"type": "module",
-	"description": "project command about sneakers",
-	"main": "gulp-config.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "gulp"
-	},
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"gulp-htmlmin": "^5.0.1",
-		"gulp-pug": "^5.0.0",
-		"gulp-sharp-responsive": "^0.4.1",
-		"sharp": "^0.33.2"
-		"gulp-ttf2woff": "^1.1.1",
-		"gulp-ttf2woff2": "^4.0.1"
-	},
-	"dependencies": {
-		"gulp": "^4.0.2"
-	}
 }
