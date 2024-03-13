@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import minify_html from 'gulp-htmlmin';
 import pug2html from 'gulp-pug';
+import optimImg from 'sharp';
 
 const { src, dest, watch, series, parallel } = gulp;
 
@@ -18,6 +19,7 @@ export const config = {
 	},
 	tasks: {
 		minify_html: minify_html,
-		pug2html: pug2html
+		pug2html: pug2html,
+		optimImg: optimImg
 	}
-}
+} 
