@@ -8,9 +8,6 @@ const { init } = browser_2_server;
 
 export const server = (done) => {
   init({
-    // server: {
-    //   baseDir: [build, `${source}`],
-    // },
     server: {
       baseDir: build,
     },
@@ -19,7 +16,7 @@ export const server = (done) => {
     ui: false,
     middleware: [
       serveStatic(source, {
-        route: 'images',
+        route: ['images', 'fonts'],
       }),
     ],
   });

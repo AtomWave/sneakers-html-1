@@ -8,21 +8,41 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp"
   },
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.pug": "pug-lint",
+    "*.scss": "stylelint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^3.0.2",
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-lint": "^0.0.1",
     "gulp-plumber": "^1.2.1",
     "gulp-pug": "^5.0.0",
     "gulp-sharp-responsive": "^0.4.1",
     "gulp-ttf2woff": "^1.1.1",
     "gulp-ttf2woff2": "^4.0.1",
+    "lint-staged": "^15.2.2",
     "npm": "^10.5.0",
     "serve-static": "^1.15.0",
-    "sharp": "^0.33.2"
+    "sharp": "^0.33.2",
+    "stylelint": "^16.2.1",
+    "stylelint-scss": "^6.2.1"
   },
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "husky": "^9.0.11"
   }
 }
