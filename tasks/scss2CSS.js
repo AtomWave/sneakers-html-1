@@ -4,7 +4,7 @@ import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import concat from 'gulp-concat';
 import sourcemaps from 'gulp-sourcemaps';
-import gulp from 'gulp';
+
 
 
 const { scss2CSS } = config.tasks;
@@ -16,7 +16,7 @@ const { source, build } = config.paths;
 export const scss_2_CSS = () => {
 	return src(`${source}sass/*.scss`).pipe(scss2CSS({pretty: true,}))
   .pipe(plumber())
-  .pipe(scss2CSS({outputStyle: 'compressed'}).on('error', scss2CSS.logError))
+  .pipe(scss2CSS().on('error', scss2CSS.logError))
   .pipe(postcss([
     autoprefixer({
 			grid: true,
@@ -27,6 +27,5 @@ export const scss_2_CSS = () => {
   .pipe(concat('css/style.css'))
   .pipe(sourcemaps.init())
   .pipe(sourcemaps.write('.'))
-  // .pipe(gulp.dest('dist'))
   .pipe(dest(`${build}`))
 }
