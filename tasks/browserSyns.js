@@ -1,24 +1,24 @@
-import { config } from "./../gulp-config.js";
-import serveStatic from 'serve-static';
+import { config } from './../gulp-config.js'
+import serveStatic from 'serve-static'
 
-const { browser_2_server } = config.tasks;
-const { build, source } = config.paths;
+const { browserServer } = config.tasks
+const { build, source } = config.paths
 
-const { init } = browser_2_server;
+const { init } = browserServer
 
 export const server = (done) => {
   init({
     server: {
-      baseDir: build,
+      baseDir: build
     },
     cors: true,
     notify: false,
     ui: false,
     middleware: [
       serveStatic(source, {
-        route: ['images', 'fonts'],
-      }),
-    ],
-  });
-  done();
+        route: ['images', 'fonts']
+      })
+    ]
+  })
+  done()
 }
