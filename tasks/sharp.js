@@ -1,6 +1,7 @@
 import { config } from "../gulp-config.js"; //Импорт модуля конфигурации Gulp
 import fs from "fs"; // Импорт модуля fs для работы с файловой системой
 import { readdir } from "node:fs/promises"; //Импорт функции readdir из модуля fs/promises для асинхронного чтения содержимого директории
+import gulp from "gulp";
 
 const { sharp } = config.tasks; //переменная sharp содержит значение, соответствующее свойству sharp из config.tasks
 const { source, raws, images } = config.paths;  //извлечение свойств source, raws, images
@@ -94,3 +95,9 @@ async function createImages(image, path, format, retina, mobile = false) {
 export function resizeImage() {
   return proccesImages();
 }
+
+// Добавляем наблюдателя за изменениями в директории с изображениями
+
+export const watchImages = () => {
+  return gulp.watch(`${raws}`).on('change', resizeImage); // Наблюдаем за изменениями файлов в директории raws
+};                                             // При изменении файла вызываем функцию resizeImage для его обработки
