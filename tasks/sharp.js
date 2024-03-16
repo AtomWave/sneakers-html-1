@@ -30,11 +30,16 @@ async function proccesImages() {
     createImages(image, path, 'webp', '2x');
     createImages(image, path, 'png', '1x');
     createImages(image, path, 'webp', '1x');
+
+    createImages(image, path, 'png', '2x', true); // Создание изображений для мобильных устройств
+    createImages(image, path, 'webp', '2x', true);
+    createImages(image, path, 'png', '1x', true);
+    createImages(image, path, 'webp', '1x', true);
   };
 }
 
 // Асинхронная функция для создания изображений аргументы: image (обработанное изображение), path (путь к изображению), format (формат изображения),  retina (информация о разрешении)
-async function createImages(image, path, format, retina) {
+async function createImages(image, path, format, retina, mobile = false) {
   let existention; // Переменная для хранения расширения файла
   let sizesRetina; // Переменная для хранения информации о разрешении (retina)
   const data = await image // Ожидание выполнения операций с изображением
@@ -61,6 +66,13 @@ async function createImages(image, path, format, retina) {
         if (retina === '1x') {
           sizesRetina = '@1x';
           proccedImage = image.resize(Math.round(metadata.width / 2)).png({ quality: 75 });
+        }
+
+        // Добавление обработки для мобильных изображений
+        if (mobile) {
+          existention = '_mobile' + existention; // Добавление суффикса для мобильных изображений
+          sizesRetina = ''; // Мобильные изображения не имеют информации о разрешении
+          proccedImage = proccedImage.resize({ width: 320 }); // Изменение размера для мобильных устройств
         }
       }
       return proccedImage.toBuffer(); //возвращает буферизованные данные обработанного изображения
