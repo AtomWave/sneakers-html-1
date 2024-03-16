@@ -43,8 +43,5 @@
   },
   "dependencies": {
     "gulp": "^4.0.2"
-  },
-  "stylelint": {
-    "files": ["**/*.scss"]
   }
 }
