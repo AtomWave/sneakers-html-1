@@ -2,7 +2,7 @@ import {config} from "../gulp-config.js"; //Импорт модуля конфи
 import fs from "fs"; // Импорт модуля fs для работы с файловой системой
 import { readdir } from "node:fs/promises"; //Импорт функции readdir из модуля fs/promises для асинхронного чтения содержимого директории
 
-const { sharp } = config.tasks; // переменная sharp содержит значение, соответствующее свойству sharp из config.tasks
+const { sharp } = config.tasks; //переменная sharp содержит значение, соответствующее свойству sharp из config.tasks
 const { source, raws, images } = config.paths;  //извлечение свойств source, raws, images
 
 // Функция для асинхронного получения списка файлов в указанной директории
@@ -24,6 +24,7 @@ async function proccesImages() {
   for (let i = 0; i < ALL_IMAGES.length; i++) { // Итерация по списку файлов
     let path = ALL_IMAGES[i]; // Получение пути к текущему файлу
     let fullPath = `./raws/${ALL_IMAGES[i]}`; // Формирование полного пути к файлу
+
     image = sharp(fullPath); // Создание экземпляра объекта sharp для текущего изображения
     createImages(image, path, 'png', '2x'); // Создание изображений разного размера и формата
     createImages(image, path, 'webp', '2x');
