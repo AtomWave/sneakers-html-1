@@ -1,4 +1,4 @@
-import {config} from "../gulp-config.js"; //Импорт модуля конфигурации Gulp
+import { config } from "../gulp-config.js"; //Импорт модуля конфигурации Gulp
 import fs from "fs"; // Импорт модуля fs для работы с файловой системой
 import { readdir } from "node:fs/promises"; //Импорт функции readdir из модуля fs/promises для асинхронного чтения содержимого директории
 
@@ -67,14 +67,14 @@ async function createImages(image, path, format, retina, mobile = false) {
           sizesRetina = '@1x';
           proccedImage = image.resize(Math.round(metadata.width / 2)).png({ quality: 75 });
         }
-
+      }
         // Добавление обработки для мобильных изображений
         if (mobile) {
           existention = '_mobile' + existention; // Добавление суффикса для мобильных изображений
           sizesRetina = ''; // Мобильные изображения не имеют информации о разрешении
           proccedImage = proccedImage.resize({ width: 320 }); // Изменение размера для мобильных устройств
         }
-      }
+      
       return proccedImage.toBuffer(); //возвращает буферизованные данные обработанного изображения
     })
     .then(function (data) { //данные изображения записываются в файл с использованием fs.writeFile(). В пути к файлу учитываются формат изображения, разрешение (retina) и путь к изображению

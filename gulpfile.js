@@ -9,7 +9,7 @@ const { series } = config.gulp;
 
 const build = series(pug2html, resizeImage, fontsTTF2WOFF);
 
-export const optimizeImages = series(resizeImage);
+/* export const optimizeImages = series(resizeImage); */
 
 export default series(
   build,
