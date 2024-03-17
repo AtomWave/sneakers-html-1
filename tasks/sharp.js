@@ -73,7 +73,7 @@ async function createImages(image, path, format, retina, mobile = false) {
         if (mobile) {
           existention = '_mobile' + existention; // Добавление суффикса для мобильных изображений
           sizesRetina = ''; // Мобильные изображения не имеют информации о разрешении
-          proccedImage = proccedImage.resize({ width: 320 }); // Изменение размера для мобильных устройств
+          proccedImage = proccedImage.resize({ width: 400 }); // Изменение размера для мобильных устройств
         }
       
       return proccedImage.toBuffer(); //возвращает буферизованные данные обработанного изображения
@@ -92,8 +92,14 @@ async function createImages(image, path, format, retina, mobile = false) {
   return data;
 }
 
-export function resizeImage() {
+/* export function resizeImage() {
   return proccesImages();
+} */
+
+export function resizeImage() {
+  return getFiles(raws)
+    .then(proccesImages)
+    .catch(console.error);
 }
 
 // Добавляем наблюдателя за изменениями в директории с изображениями
