@@ -92,18 +92,12 @@ async function createImages(image, path, format, retina, mobile = false) {
   return data;
 }
 
-/* export function resizeImage() {
-  return proccesImages();
-} */
 
 export function resizeImage() {
-  return getFiles(raws)
-    .then(proccesImages)
-    .catch(console.error);
+  return proccesImages();
 }
 
 // Добавляем наблюдателя за изменениями в директории с изображениями
-
-export const watchImages = () => {
+export const watchImg = () => {
   return gulp.watch(`${raws}`).on('change', resizeImage); // Наблюдаем за изменениями файлов в директории raws
-};                                             // При изменении файла вызываем функцию resizeImage для его обработки
+};
