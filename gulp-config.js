@@ -3,8 +3,8 @@ import minify_html from 'gulp-htmlmin';
 import pug2html from 'gulp-pug';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
-
 const scss2CSS = gulpSass(dartSass);
+
 const { src, dest, watch, series, parallel } = gulp;
 
 export const config = {

@@ -19,12 +19,14 @@ export const scss_2_CSS = () => {
   .pipe(scss2CSS().on('error', scss2CSS.logError))
   .pipe(postcss([
     autoprefixer({
-			grid: true,
 			overrideBrowserslist: ["last 3 versions"],
-			cascade: true
 		})
   ]))
   .pipe(concat('css/style.css'))
+
+  // .pipe(app.plugins.if(app.isBuild, cleanCss({ compatibility: 'ie8' })))
+  // .pipe(rename({ extname: '.min.css' }))
+
   .pipe(sourcemaps.init())
   .pipe(sourcemaps.write('.'))
   .pipe(dest(`${build}`))
