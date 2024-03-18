@@ -11,10 +11,10 @@ export const fontsTTF2WOFF = (done) => {
   ttf2woff2()
   done()
 }
-function ttf2woff () {
+function ttf2woff() {
   return src(`${source}fonts/*.ttf`).pipe(ttf_2_woff()).pipe(dest(`${source}fonts`))
 }
 
-function ttf2woff2 () {
+function ttf2woff2() {
   return src(`${source}fonts/*.ttf`).pipe(ttf_2_woff_2()).pipe(dest(`${source}fonts`))
 }
