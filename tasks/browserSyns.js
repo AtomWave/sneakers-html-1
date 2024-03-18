@@ -1,10 +1,10 @@
 import { config } from './../gulp-config.js'
 import serveStatic from 'serve-static'
 
-const { browserServer } = config.tasks
+const { browser_2_server } = config.tasks
 const { build, source } = config.paths
 
-const { init } = browserServer
+const { init } = browser_2_server
 
 export const server = (done) => {
   init({
