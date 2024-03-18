@@ -1,9 +1,17 @@
-doctype html
-html(lang="en")
-	head
-		meta(charset="UTF-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		title Document
-	body
-		include ./commons/_variables.pug
-		h1 {title}
+extends ./layout/main.pug
+block variables
+block mixins
+	include ./commons/_mixins.pug
+
+block head
+	title= titles.index
+block header
+	include ./layout/header.pug
+block content
+	main.main
+	+list('list',1,2,3,4,5)
+	img(src="images/hero-img.png", alt="Image.")
+block footer
+	include ./layout/footer.pug 1sadasd
+block scripts
+	script(type="module", src="js/script.min.js")
