@@ -31,4 +31,3 @@ export const scss_2_CSS = () => {
   .pipe(sourcemaps.write('.'))
   .pipe(dest(`${build}`))
 }
-
