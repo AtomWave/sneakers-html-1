@@ -4,6 +4,7 @@ import pug2html from 'gulp-pug'
 import plumber from 'gulp-plumber'
 import browser from 'browser-sync'
 import sharp from 'sharp'
+
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 const scss2CSS = gulpSass(dartSass);
@@ -36,6 +37,6 @@ export const config = {
     scss2CSS: scss2CSS,
     plumber_watch: plumber,
     browser_2_server: browser,
-    sharp: sharp
+    sharp: sharp,
   }
 }

@@ -30,10 +30,11 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
     "gulp-autoprefixer": "^9.0.0",
-    "gulp-postcss": "^10.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-lint": "^0.0.1",
     "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^10.0.0",
     "gulp-pug": "^5.0.0",
     "gulp-sharp-responsive": "^0.4.1",
     "gulp-ttf2woff": "^1.1.1",
@@ -46,6 +47,9 @@
     "stylelint-scss": "^6.2.1"
   },
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.72.0"
   }
 }
