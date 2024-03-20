@@ -8,3 +8,10 @@
 <li>Маша: таск с fonts - выполнен</li>
 <li>Антонина: таск с вектором - в работе </li>
 </ul>
+
+
+<!-- Для работы плагина  sharp -->
+     Ensure optional dependencies can be installed:
+     npm install --include=optional sharp
+     Add platform-specific dependencies:
+     npm install --os=win32 --cpu=x64 sharp
