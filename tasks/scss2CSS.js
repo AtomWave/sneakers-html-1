@@ -4,6 +4,8 @@ import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import concat from 'gulp-concat';
 import sourcemaps from 'gulp-sourcemaps';
+import rename from 'gulp-rename';
+import cleanCss from 'gulp-clean-css';
 
 
 
@@ -24,8 +26,8 @@ export const scss_2_CSS = () => {
   ]))
   .pipe(concat('css/style.css'))
 
-  // .pipe(app.plugins.if(app.isBuild, cleanCss({ compatibility: 'ie8' })))
-  // .pipe(rename({ extname: '.min.css' }))
+    .pipe(scss2CSS.if(build, cleanCss()))
+  .pipe(rename({ extname: '.min.css' }))
 
   .pipe(sourcemaps.init())
   .pipe(sourcemaps.write('.'))
