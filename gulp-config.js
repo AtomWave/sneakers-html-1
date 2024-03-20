@@ -1,5 +1,6 @@
 import gulp from 'gulp'
 import minifyHtml from 'gulp-htmlmin'
+import minifyCSS from 'gulp-clean-css'
 import pug2html from 'gulp-pug'
 import plumber from 'gulp-plumber'
 import browser from 'browser-sync'
@@ -38,5 +39,6 @@ export const config = {
     plumber_watch: plumber,
     browser_2_server: browser,
     sharp: sharp,
+    minify_CSS: minifyCSS,
   }
 }

@@ -4,8 +4,7 @@ import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import concat from 'gulp-concat';
 import sourcemaps from 'gulp-sourcemaps';
-import rename from 'gulp-rename';
-import cleanCss from 'gulp-clean-css';
+
 
 
 
@@ -16,20 +15,16 @@ const { source, build } = config.paths;
 
 
 export const scss_2_CSS = () => {
-	return src(`${source}sass/*.scss`).pipe(scss2CSS({pretty: true,}))
-  .pipe(plumber())
-  .pipe(scss2CSS().on('error', scss2CSS.logError))
-  .pipe(postcss([
-    autoprefixer({
-			overrideBrowserslist: ["last 3 versions"],
-		})
-  ]))
-  .pipe(concat('css/style.css'))
-
-    .pipe(scss2CSS.if(build, cleanCss()))
-  .pipe(rename({ extname: '.min.css' }))
-
-  .pipe(sourcemaps.init())
-  .pipe(sourcemaps.write('.'))
-  .pipe(dest(`${build}`))
+  return src(`${source}sass/*.scss`).pipe(scss2CSS({ pretty: true, }))
+    .pipe(plumber())
+    .pipe(scss2CSS().on('error', scss2CSS.logError))
+    .pipe(postcss([
+      autoprefixer({
+        overrideBrowserslist: ["last 3 versions"],
+      })
+    ]))
+    .pipe(concat('css/style.css'))
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest(`${build}`))
 }
