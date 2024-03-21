@@ -4,12 +4,12 @@ import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import concat from 'gulp-concat';
 import sourcemaps from 'gulp-sourcemaps';
+import gulp from 'gulp'
 
 
 
-
-const { scss2CSS } = config.tasks;
-const { src, dest } = config.gulp;
+const { scss2CSS, browser_2_server } = config.tasks;
+const { src, dest, watch, series } = config.gulp;
 const { source, build } = config.paths;
 
 
@@ -20,11 +20,16 @@ export const scss_2_CSS = () => {
     .pipe(scss2CSS().on('error', scss2CSS.logError))
     .pipe(postcss([
       autoprefixer({
-        overrideBrowserslist: ["last 3 versions"],
+        overrideBrowserslist: ["last 3 versions"], cascade: false
       })
     ]))
     .pipe(concat('css/style.css'))
     .pipe(sourcemaps.init())
     .pipe(sourcemaps.write('.'))
     .pipe(dest(`${build}`))
+    .pipe(browser_2_server.stream())
 }
+export const watcherSCSS = () => {
+  watch(`${source}scss/*.scss`).on('change', series(scss2CSS, browser_2_server.reload));
+};
+
