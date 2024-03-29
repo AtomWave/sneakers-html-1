@@ -3,7 +3,7 @@ import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import concat from 'gulp-concat';
-
+import sourcemaps from 'gulp-sourcemaps';
 import clean_css from 'gulp-clean-css';
 
 
@@ -16,7 +16,7 @@ const { source, sass, build } = config.paths;
 
 export const scss_CSS = () => {
   return src(`${source}sass/*.scss`).pipe(scssCSS({ pretty: true, }))
-    // .pipe(clean_css())
+    .pipe(clean_css())
     .pipe(plumber())
     .pipe(scssCSS().on('error', scssCSS.logError))
     .pipe(postcss([
@@ -25,7 +25,9 @@ export const scss_CSS = () => {
       })
     ]))
     .pipe(concat('css/style.css'))
-    .pipe(dest(`${source}`))
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest(`${build}`))
 }
 
 export const watcherSCSS = () => {
