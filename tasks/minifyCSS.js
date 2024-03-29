@@ -1,6 +1,7 @@
 import { config } from "./../gulp-config.js";
 import minifyCSS from 'gulp-clean-css'
 import rename from 'gulp-rename'
+import sourcemaps from 'gulp-sourcemaps';
 
 const { src, dest } = config.gulp;
 const { source, build } = config.paths;
@@ -8,8 +9,10 @@ const { source, build } = config.paths;
 
 
 export const minify_CSS = () => {
-  return src(`${build}css/*.css`)
+  return src(`${source}css/*.css`)
     .pipe(minifyCSS())
-    .pipe(rename('.min.css'))
+    .pipe(rename('style.min.css'))
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.write('.'))
     .pipe(dest(`${build}css`))
 }
