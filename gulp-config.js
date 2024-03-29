@@ -4,6 +4,10 @@ import pug2html from 'gulp-pug'
 import plumber from 'gulp-plumber'
 import browser from 'browser-sync'
 import sharp from 'sharp'
+import optimImg from 'sharp';
+import svgSprite from 'gulp-svg-sprite';
+import svgo from 'gulp-svgo';
+import favicons from 'gulp-favicons';
 
 const { src, dest, watch, series, parallel } = gulp
 
@@ -32,6 +36,10 @@ export const config = {
     pug_2_html: pug2html,
     plumber_watch: plumber,
     browser_2_server: browser,
-    sharp: sharp
+    sharp: sharp,
+    optimImg: optimImg,
+    svgo: svgo,
+    svgSprite: svgSprite,
+    favicons: favicons,
   }
 }
