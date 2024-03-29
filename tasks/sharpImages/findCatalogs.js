@@ -2,26 +2,25 @@ import { readdir } from 'fs/promises'
 import { join } from 'path'
 import fs from 'node:fs'
 
+const paths = []
+const files = []
 const source = 'raws'
+const regExpPaths = /\\/g
+const regExpestentions = /.png|.jpg|.jpeg/gm
 
 async function getFiles(dir) {
-  let output = []
+  const output = []
   if (fs.lstatSync(dir).isDirectory()) {
-    let files = await readdir(dir, { withFileTypes: true })
-    let file = files.map((file) => join(dir, file.name))
+    const files = await readdir(dir, { withFileTypes: true })
+    const file = files.map((file) => join(dir, file.name))
     output.push(file)
   } else {
-    let files = await readdir(source, { withFileTypes: true })
-    let file = files.map((file) => join(source, file.name))
+    const files = await readdir(source, { withFileTypes: true })
+    const file = files.map((file) => join(source, file.name))
     output.push(file)
   }
   return output
 }
-
-let paths = []
-let files = []
-
-let regExestentions = /.png|.jpg|.jpeg/gm
 
 async function populatePaths() {
   try {
@@ -55,15 +54,16 @@ async function allPaths() {
   await populatePaths()
   return files
 }
-let reg = /\\/g;
-export let arr = [];
-export let getAllPaths = allPaths();
+export const arr = []
+export const getAllPaths = allPaths();
 
 getAllPaths.then(res => {
-
-  // let arr1 = res.map(el => el.replace(reg, '/'))
-  arr.push(...res);
-  return arr
-}).then(file => {
-  console.log(file, 'file');
-})
+  let arr1 = res.map((el) =>
+    arr.push(...res)
+    return arr1
+)}
+).then(file => {
+      arr.concat(file)
+      console.log(file, 'file');
+      console.log(arr1, 'arr');
+    })

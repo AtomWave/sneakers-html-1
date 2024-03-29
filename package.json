@@ -18,7 +18,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
-    }
+    },
   },
   "lint-staged": {
     "*.js": "eslint",
@@ -39,6 +39,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
+    "gulp-favicons": "^4.0.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-lint": "^0.0.1",
     "gulp-plumber": "^1.2.1",
@@ -51,7 +52,9 @@
     "sharp": "^0.33.2",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
-    "stylelint-scss": "^6.2.1"
+    "stylelint-scss": "^6.2.1",
+    "gulp-svg-sprite": "^2.0.3",
+    "gulp-svgo": "^2.2.1"
   },
   "dependencies": {
     "gulp": "^4.0.2"
