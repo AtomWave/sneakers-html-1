@@ -17,6 +17,11 @@ import { rmSync } from 'node:fs'
 
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
+import postcss from 'gulp-postcss';
+import autoprefixer from 'autoprefixer';
+import concat from 'gulp-concat';
+import clean_css from 'gulp-clean-css';
+
 const scssCSS = gulpSass(dartSass);
 
 const { src, dest, watch, series, parallel } = gulp
@@ -26,15 +31,18 @@ export const config = {
   paths: {
     source: './source/',
     build: './build/',
-    images: 'source/images/',
+    images: './source/images/',
     raws: './raws/',
     pug: {
-      all: 'source/pug/',
-      pages: 'source/pug/pages/**/*.pug',
-      main: 'source/pug/index.pug'
+      all: './source/pug/',
+      pages: './source/pug/pages/**/*.pug',
+      main: './source/pug/index.pug'
     },
     js: {
-      all: 'source/js/'
+      all: './source/js/'
+    },
+    scss: {
+      all: './source/sass/'
     }
   },
   gulp: {
@@ -59,6 +67,11 @@ export const config = {
     vinylsource: vinylsource,
     notify: notify,
     buffer: buffer,
-    del: rmSync
+    del: rmSync,
+    minifyCSS: minifyCSS,
+    postcss: postcss,
+    autoprefixer: autoprefixer,
+    concat: concat,
+    clean_css: clean_css
   }
 }

@@ -12,7 +12,6 @@ import { copyAssets } from './tasks/copyAssets.js'
 
 const { series, parallel } = config.gulp
 
-
 export async function scripts() {
   await createScripts()
 }
@@ -29,8 +28,8 @@ export async function optimizeAllImages() {
   await createStack()
 }
 
-export const development = (done) => series(del, parallel(pug2html, scripts), server)(done)
-export const build = (done) => series(del, copy, parallel(pug2html, scripts), serverBuild)(done)
+export const development = (done) => series(del, parallel(pug2html, scss_CSS, scripts), server)(done)
+export const build = (done) => series(del, statics, copy, parallel(pug2html, scss_CSS, scripts), serverBuild)(done)
 
 export const statics = (done) => {
   series(optimizeAllImages, fontsTTF2WOFF)(done)

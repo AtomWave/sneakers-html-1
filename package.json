@@ -7,10 +7,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
+    "build": "gulp build",
     "lint:js": "eslint --fix --ext .js,.jsx .",
     "lint:scss": "stylelint \"**/*.scss\"",
     "images": "gulp optimizeRaster",
-    "vectors": "gulp optimizeVectors"
+    "vectors": "gulp optimizeVectors",
+    "all-images": "gulp optimizeAllImages"
   },
   "author": "",
   "license": "ISC",
