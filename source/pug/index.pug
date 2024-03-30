@@ -9,9 +9,10 @@ block header
 	include ./layout/header.pug
 block content
 	main.main
-	+list('list',1,2,3,4,5)
+	nav.nav-menu
+	+list('list',1,2,3,4,5,6)
 	img(src="images/hero-img.png", alt="Image.")
 block footer
-	include ./layout/footer.pug 1sadasd
+	include ./layout/footer.pug
 block scripts
 	script(type="module", src="js/script.min.js")

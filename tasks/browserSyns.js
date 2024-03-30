@@ -22,3 +22,14 @@ export const server = (done) => {
   })
   done()
 }
+export const serverBuild = (done) => {
+  init({
+    server: {
+      baseDir: build
+    },
+    cors: true,
+    notify: false,
+    ui: false
+  })
+  done()
+}

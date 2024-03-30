@@ -1,21 +1,48 @@
-import { pug2html, watcherPug } from './tasks/pug2html.js'
+import { pug2html } from './tasks/pug2html.js'
 import { config } from './gulp-config.js'
-import { server } from './tasks/browserSyns.js'
+import { server, serverBuild } from './tasks/browserSyns.js'
+import { optimizeRaster } from './tasks/sharp.js'
+import { fontsTTF2WOFF } from './tasks/fontsTTF2WOFF.js'
+import { createScripts } from './tasks/scripts.js'
+import { getStack } from './tasks/stack.js'
+import { optimizeVector } from "./tasks/optimizeVector.js"
+import { removeBuild } from './tasks/del.js'
+import { copyAssets } from './tasks/copyAssets.js'
 
-import { resizeImage } from './tasks/sharp.js';
-import { fontsTTF2WOFF } from './tasks/fontsTTF2WOFF.js';
+const { series, parallel } = config.gulp
 
-import { optimizeVector } from "./tasks/optimizeVector.js";
-import { getSvgSpriteStack } from "./tasks/svgSprite.js";
-import { getSvgSpriteSymbol } from "./tasks/svgSprite.js";
-import { favicon } from "./tasks/favicons.js";
 
-const { series } = config.gulp;
+export async function scripts() {
+  await createScripts()
+}
+export async function optimizeVectors() {
+  await optimizeVector()
+}
+export async function createStack() {
+  await getStack()
+}
 
-const build = series(pug2html, fontsTTF2WOFF);
+export async function optimizeAllImages() {
+  await optimizeRaster()
+  await optimizeVectors()
+  await createStack()
+}
 
-export default series(
-  build,
-  server,
-  watcherPug
-)
+export const development = (done) => series(del, parallel(pug2html, scripts), server)(done)
+export const build = (done) => series(del, copy, parallel(pug2html, scripts), serverBuild)(done)
+
+export const statics = (done) => {
+  series(optimizeAllImages, fontsTTF2WOFF)(done)
+}
+// export default series(
+//   build,
+//   server,
+//   watcherPug
+// )
+
+export async function del() {
+  await removeBuild()
+}
+export async function copy() {
+  await copyAssets()
+}

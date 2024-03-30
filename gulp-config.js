@@ -3,25 +3,33 @@ import minifyHtml from 'gulp-htmlmin'
 import pug2html from 'gulp-pug'
 import plumber from 'gulp-plumber'
 import browser from 'browser-sync'
-import sharp from 'sharp'
-import optimImg from 'sharp';
-import svgSprite from 'gulp-svg-sprite';
-import svgo from 'gulp-svgo';
-import favicons from 'gulp-favicons';
+import sharp from 'gulp-sharp-responsive'
+import { stacksvg } from 'gulp-stacksvg'
+import svgo from 'gulp-svgo'
+import uglify from 'gulp-uglify'
+import rename from 'gulp-rename'
+import browserify from 'browserify'
+import vinylsource from 'vinyl-source-stream'
+import notify from 'gulp-notify'
+import buffer from 'vinyl-buffer'
+import { rmSync } from 'node:fs'
 
 const { src, dest, watch, series, parallel } = gulp
 
 export const config = {
 
   paths: {
-    source: 'source/',
-    build: 'build/',
+    source: './source/',
+    build: './build/',
     images: 'source/images/',
-    raws: 'raws/', // Путь к каталогу с необработанными изображениями
+    raws: './raws/',
     pug: {
       all: 'source/pug/',
       pages: 'source/pug/pages/**/*.pug',
       main: 'source/pug/index.pug'
+    },
+    js: {
+      all: 'source/js/'
     }
   },
   gulp: {
@@ -37,9 +45,14 @@ export const config = {
     plumber_watch: plumber,
     browser_2_server: browser,
     sharp: sharp,
-    optimImg: optimImg,
     svgo: svgo,
-    svgSprite: svgSprite,
-    favicons: favicons,
+    stack: stacksvg,
+    uglify: uglify,
+    rename: rename,
+    browserify: browserify,
+    vinylsource: vinylsource,
+    notify: notify,
+    buffer: buffer,
+    del: rmSync
   }
 }

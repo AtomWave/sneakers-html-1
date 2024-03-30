@@ -27,9 +27,10 @@ function mainPug() {
 export const pug2html = (done) => {
   pagesPug()
   mainPug()
+  watcherPug()
   done()
 }
 
-export const watcherPug = () => {
+function watcherPug() {
   watch(`${pug.all}**/*.pug`).on('change', series(pug2html, browser_2_server.reload))
 }
