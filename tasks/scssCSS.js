@@ -5,8 +5,9 @@ import autoprefixer from 'autoprefixer';
 import concat from 'gulp-concat';
 import sourcemaps from 'gulp-sourcemaps';
 import clean_css from 'gulp-clean-css';
-
-
+import minifyCSS from 'gulp-clean-css'
+import rename from 'gulp-rename'
+// import browser from 'browser-sync'
 
 const { scssCSS, plumber_watch, browser_2_server } = config.tasks;
 const { src, dest, watch, series } = config.gulp;
@@ -15,7 +16,7 @@ const { source, sass, build } = config.paths;
 
 
 export const scss_CSS = () => {
-  return src(`${source}sass/*.scss`).pipe(scssCSS({ pretty: true, }))
+  return src(`${source}sass/*.scss`, { sourcemaps: true }).pipe(scssCSS({ pretty: true, }))
     .pipe(clean_css())
     .pipe(plumber())
     .pipe(scssCSS().on('error', scssCSS.logError))
@@ -25,11 +26,10 @@ export const scss_CSS = () => {
       })
     ]))
     .pipe(concat('css/style.css'))
-    .pipe(sourcemaps.init())
-    .pipe(sourcemaps.write('.'))
-    .pipe(dest(`${build}`))
+    .pipe(minifyCSS())
+    .pipe(rename('style.min.css'))
+    .pipe(dest(`${build}css`, { sourcemaps: '.' }))
+    .pipe(browser_2_server.stream());
 }
 
-export const watcherSCSS = () => {
-  watch(`${sass}sass/*.scss`).on('change', series(scssCSS, browser_2_server.reload))
-}
+

@@ -19,7 +19,6 @@ export const config = {
     build: 'build/',
     images: 'source/images/',
     raws: 'raws/', // Путь к каталогу с необработанными изображениями
-    scss: 'source/sass/styles.scss',
     pug: {
       all: 'source/pug/',
       pages: 'source/pug/pages/**/*.pug',
@@ -40,6 +39,5 @@ export const config = {
     plumber_watch: plumber,
     browser_2_server: browser,
     sharp: sharp,
-    minify_CSS: minifyCSS,
   }
 }
