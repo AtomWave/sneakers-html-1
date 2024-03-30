@@ -12,16 +12,6 @@
     "images": "gulp optimizeRaster",
     "vectors": "gulp optimizeVectors"
   },
-  "lint-staged": {
-    "*.js": "eslint",
-    "*.pug": "pug-lint",
-    "*.scss": "stylelint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -43,6 +33,7 @@
     "gulp-lint": "^0.0.1",
     "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^10.0.0",
     "gulp-pug": "^5.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sharp-responsive": "0.4.1",

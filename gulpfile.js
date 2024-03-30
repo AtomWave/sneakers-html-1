@@ -1,4 +1,5 @@
 import { pug2html } from './tasks/pug2html.js'
+import { scss_CSS } from "./tasks/scssCSS.js";
 import { config } from './gulp-config.js'
 import { server, serverBuild } from './tasks/browserSyns.js'
 import { optimizeRaster } from './tasks/sharp.js'
@@ -34,11 +35,6 @@ export const build = (done) => series(del, copy, parallel(pug2html, scripts), se
 export const statics = (done) => {
   series(optimizeAllImages, fontsTTF2WOFF)(done)
 }
-// export default series(
-//   build,
-//   server,
-//   watcherPug
-// )
 
 export async function del() {
   await removeBuild()
@@ -46,3 +42,8 @@ export async function del() {
 export async function copy() {
   await copyAssets()
 }
+
+export default series(
+  development
+)
+
