@@ -2,3 +2,19 @@ mixin list(id, ...items)
 	ul(id=id)
 		each item in items
 			li= item
+
+mixin listObject(id, items)
+	ul(class='nav' id=id)
+		each item,key in items
+			li.nav__item= item
+
+mixin img(className, src, alt, width, height, ext)
+	picture
+		source(type='image/webp' srcet=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 600px)" width=width height=height)
+		source(type='image/webp' srcet=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 1200px)" width=width height=height)
+		source(type=`image/${ext}` srcet=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 600px)" width=width height=height)
+		source(type=`image/${ext}` srcet=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 1200px)" width=width height=height)
+		img(class=className src=`${src}@1x.${ext}`, alt=alt, width=width, height=height)
+
+mixin link(className, text, href='#')
+	a(class=className, href=href)= text
