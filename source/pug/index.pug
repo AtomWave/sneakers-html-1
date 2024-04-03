@@ -1,5 +1,6 @@
 extends ./layout/main.pug
 block variables
+	include ./commons/_variables.pug
 block mixins
 	include ./commons/_mixins.pug
 
@@ -9,18 +10,10 @@ block header
 	include ./layout/header.pug
 block content
 	main.main
-		//- nav.nav-menu
-		//- +list('list',1,2,3,4,5, navigationsLinks.index)
-		//- 	+listObject('list', navigationsLinks)
-		//- 	ul
-		//- 		each val in categories
-		//- 			each item, key in val
-		//- 				ul
-		//- 					li= key
-		//- 					li= item
-		//- img(src="images/content/hero-img@1x.png", alt="Image.")
-		//- +img('image', 'images/content/hero-img', 'Image', 64, 54, 'png')
 		include ./sections/intro.pug
+		include ./sections/slider.pug
+		include ./sections/about.pug
+		include ./sections/map.pug
 block footer
 	include ./layout/footer.pug
 block scripts
