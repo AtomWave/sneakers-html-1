@@ -1,4 +1,13 @@
-mixin list(id, ...items)
+mixin navObject(items)
+	ul(class='nav')
+		each item, key in items
+			li.nav__item
+				a(href=`./${key}.html`)= item
+
+mixin button(text='Кнопка', className='button', type='button')
+	button(type=type, class=className)= text
+
+mixin list(id, items)
 	ul(id=id)
 		each item in items
 			li= item
@@ -18,3 +27,8 @@ mixin img(className, src, alt, width, height, ext)
 
 mixin link(className, text, href='#')
 	a(class=className, href=href)= text
+
+mixin inputField(label, name, type)
+	label(for=name)= label
+	input(type=type, name=name)
+

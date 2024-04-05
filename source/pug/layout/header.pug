@@ -1,4 +1,7 @@
 header.header
 	.container
 		nav.nav
-			+list('nav', 'main', 'about us', 'services')
+			+navObject(navHeaderLinks)
+			+button('Войти через VK', 'vk-login', 'button')
+			//+list('ГЛАВНАЯ', 'КАТАЛОГ', 'ОПЛАТА И ДОСТАВКА', 'КОНТАКТЫ')
+		include ./../sections/user.pug
