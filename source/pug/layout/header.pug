@@ -1,7 +1,8 @@
 header.header
 	.container
 		nav.nav
-			+navObject(navHeaderLinks)
+			+menu(navHeader, 'nav__list', 'nav__item')
+			+categoryList(categoriesList, 'category__list', 'category__item', 'subtitle', 'sub__list', 'sub__item')
 			+button('Войти через VK', 'vk-login', 'button')
-			//+list('ГЛАВНАЯ', 'КАТАЛОГ', 'ОПЛАТА И ДОСТАВКА', 'КОНТАКТЫ')
+			+inputField('Search', 'catalog-search', 'text')
 		include ./../sections/user.pug
