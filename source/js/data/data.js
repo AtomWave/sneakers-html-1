@@ -85,7 +85,7 @@ function createRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
+//Cортировка размеров
 function getSizesArray(sizesArray) {
   const arrayLength = createRandomNumber(1, sizesArray.length - 1);
   const noRepeatIndex = createRandomNoRepeatInteger(0, sizesArray.length - 1);
@@ -142,5 +142,5 @@ const createData = () => {
   return data;
 }
 
-export const DATAS = Array.from({length: DATA_IMAGES.length}, createData);
+export const DATA = Array.from({length: DATA_IMAGES.length}, createData);
 
