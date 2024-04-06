@@ -1,9 +1,3 @@
-//+navObject(navHeaderLinks)
-//mixin navObject(items) 
-	ul(class='nav')
-		each item, key in items
-			li.nav__item
-				a(href=`./${key}.html`)= item
 
 //- Mиксин для навигации между файлами из разных папок
 mixin menu(items, ulClass, liClass)
@@ -42,11 +36,6 @@ mixin categoryList (categories, ulClass, liClass, h3Class, subUlClass, subLiClas
 								a(href=subcategory.url)= subcategory.name
 //-Use +categoryList(categoriesList, 'category__list', 'category__item', 'subtitle', 'sub__list', 'sub__item')
 
-mixin listObject(id, items)
-	ul(class='nav' id=id)
-		each item,key in items
-			li.nav__item= item
-
 mixin img(className, src, alt, width, height, ext)
 	picture
 		source(type='image/webp' srcet=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 600px)" width=width height=height)
@@ -67,7 +56,7 @@ mixin checkbox(name, checked, id, labelText)
 	label(for=id)= labelText
 	
 
-//-Миксин для списка checkbox с количеством едениц товара
+//-Миксин для списка checkbox цена с количеством едениц товара
 mixin priceCheckboxList(priceCheckboxes, ulClass, liClass)
 	ol(class=ulClass)
 		each checkbox, index in priceCheckboxes
@@ -78,7 +67,19 @@ mixin priceCheckboxList(priceCheckboxes, ulClass, liClass)
 					span(id='span_' + index) (#{checkbox.count})
 //-Use +priceCheckboxList(priceCheckbox, 'my-ul-class', 'my-li-class')
 
-mixin productList(products, ulClass, liClass, imgClass, h3Class, oldPrice, currentPrice)
+//- Миксин для чекбоксов с брендами и количеством
+mixin firmCheckboxList(firmCheckboxеs, ulClass, liClass)
+	ul(class=ulClass)
+		each checkbox, index in firmCheckboxes
+			li(class=liClass)
+				label
+					input(type="checkbox", name=checkbox.desc, id='id_' + checkbox.desc)
+					| #{checkbox.desc}
+					span(id='span_' + index) (#{checkbox.count})
+
+
+//- Миксин для карточки товара
+mixin productList(products, ulClass, liClass, imgClass, h3Class, currentPrice, oldPrice, currentPrice)
 	ul(class=ulClass)
 		each product in products
 			li(class=liClass)
@@ -86,3 +87,15 @@ mixin productList(products, ulClass, liClass, imgClass, h3Class, oldPrice, curre
 				h3(class=h3Class, name=product.name)
 				p(class=currentPrice)= "Цена: " + product.price + " ₽"
 				span(class=oldPrice)= "Старая цена: " + product.oldPrice + " ₽"
+
+mixin listObject(id, items)
+	ul(class='nav' id=id)
+		each item,key in items
+			li.nav__item= item
+
+//+navObject(navHeaderLinks)
+//mixin navObject(items) 
+	ul(class='nav')
+		each item, key in items
+			li.nav__item
+				a(href=`./${key}.html`)= item
