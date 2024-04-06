@@ -56,8 +56,26 @@ mixin img(className, src, alt, width, height, ext)
 		img(class=className src=`${src}@1x.${ext}`, alt=alt, width=width, height=height)
 
 //- Миксин для input
-mixin inputField(label, name, type)
-	label(for=name)= label
-	input(type=type, name=name)
-//-Use +inputField('Search', 'catalog-search', 'text')
+mixin inputField(label, type, name, id, placeholder)
+	label(for=id)= label
+	input(type=type, name=name, id=id, placeholder=placeholder)
+//-Use +inputField('Search', 'text', 'name-search', 'id-search', 'Введите placeholder')
 
+//-Миксин для отдельного checkbox
+mixin checkbox(name, checked, id, labelText)
+	input(type="checkbox", name=name, checked=checked, id=id)
+	label(for=id)= labelText
+	
+//mixin checkboxList(name, options)
+	h3 
+		each option in options
+
+//-Миксин для списка checkbox
+mixin priceCheckboxList(priceCheckboxes, ulClass, liClass)
+	ul(class=ulClass)
+		each checkbox, index in priceCheckboxes
+			li(class=liClass)
+				label
+					input(type="checkbox", name='name_' + index, id='id_' + index)
+					| #{checkbox.description}
+//-Use +priceCheckboxList(priceCheckbox, 'my-ul-class', 'my-li-class')

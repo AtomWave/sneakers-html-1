@@ -4,5 +4,6 @@ header.header
 			+menu(navHeader, 'nav__list', 'nav__item')
 			+categoryList(categoriesList, 'category__list', 'category__item', 'subtitle', 'sub__list', 'sub__item')
 			+button('Войти через VK', 'vk-login', 'button')
-			+inputField('Search', 'catalog-search', 'text')
+			+inputField('Search', 'text', 'name-search', 'id-search', 'Введите placeholder')
+			+priceCheckboxList(priceCheckbox, 'my-ul-class', 'my-li-class')
 		include ./../sections/user.pug
