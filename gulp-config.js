@@ -20,7 +20,7 @@ import gulpSass from 'gulp-sass';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import concat from 'gulp-concat';
-import clean_css from 'gulp-clean-css';
+
 
 const scssCSS = gulpSass(dartSass);
 
@@ -71,7 +71,6 @@ export const config = {
     minifyCSS: minifyCSS,
     postcss: postcss,
     autoprefixer: autoprefixer,
-    concat: concat,
-    clean_css: clean_css
+    concat: concat
   }
 }
