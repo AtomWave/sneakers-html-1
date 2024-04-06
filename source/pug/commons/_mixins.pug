@@ -21,7 +21,7 @@ mixin button(text='Кнопка', className='button', type='button')
 //- Mиксин для кнопки-ссылки
 mixin link(className, text, href='#')
 	a(class=className, href=href)= text
-//-Use +link('base-link', 'Перейти к каталогу', './pages/catalog.html')
+//-Use +link('my-link-class', 'Перейти к каталогу', './pages/catalog.html')
 
 //- Mиксин для списка ul
 mixin list(items, ulClass, liClass)
@@ -66,16 +66,23 @@ mixin checkbox(name, checked, id, labelText)
 	input(type="checkbox", name=name, checked=checked, id=id)
 	label(for=id)= labelText
 	
-//mixin checkboxList(name, options)
-	h3 
-		each option in options
 
-//-Миксин для списка checkbox
+//-Миксин для списка checkbox с количеством едениц товара
 mixin priceCheckboxList(priceCheckboxes, ulClass, liClass)
-	ul(class=ulClass)
+	ol(class=ulClass)
 		each checkbox, index in priceCheckboxes
 			li(class=liClass)
 				label
 					input(type="checkbox", name='name_' + index, id='id_' + index)
 					| #{checkbox.description}
+					span(id='span_' + index) (#{checkbox.count})
 //-Use +priceCheckboxList(priceCheckbox, 'my-ul-class', 'my-li-class')
+
+mixin productList(products, ulClass, liClass, imgClass, h3Class, oldPrice, currentPrice)
+	ul(class=ulClass)
+		each product in products
+			li(class=liClass)
+				img(class=imgClass, src=product.imagePath, alt=product.name)
+				h3(class=h3Class, name=product.name)
+				p(class=currentPrice)= "Цена: " + product.price + " ₽"
+				span(class=oldPrice)= "Старая цена: " + product.oldPrice + " ₽"
