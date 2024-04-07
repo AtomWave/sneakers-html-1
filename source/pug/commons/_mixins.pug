@@ -63,18 +63,18 @@ mixin priceCheckboxList(priceCheckboxes, ulClass, liClass)
 			li(class=liClass)
 				label
 					input(type="checkbox", name='name_' + index, id='id_' + index)
-					| #{checkbox.description}
+					|	#{checkbox.description}
 					span(id='span_' + index) (#{checkbox.count})
 //-Use +priceCheckboxList(priceCheckbox, 'my-ul-class', 'my-li-class')
 
 //- Миксин для чекбоксов с брендами и количеством
-mixin firmCheckboxList(firmCheckboxеs, ulClass, liClass)
+mixin firmCheckboxList(firmCheckboxes, ulClass, liClass)
 	ul(class=ulClass)
 		each checkbox, index in firmCheckboxes
 			li(class=liClass)
 				label
-					input(type="checkbox", name=checkbox.desc, id='id_' + checkbox.desc)
-					| #{checkbox.desc}
+					input(type="checkbox", name='name_' + checkbox.desc, id='id_' + checkbox.desc)
+					|	#{checkbox.desc}
 					span(id='span_' + index) (#{checkbox.count})
 
 
