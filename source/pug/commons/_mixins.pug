@@ -1,5 +1,5 @@
 
-//- Mиксин для навигации между файлами из разных папок
+//- Mиксин для навигации
 mixin menu(items, ulClass, liClass)
 	ul(class=ulClass)
 		each item in items 
@@ -87,6 +87,21 @@ mixin productList(products)
 				h3(class='product-list__title', name=product.name)
 				p(class='current-price')= product.price + ' р.'
 				span(class='old-price')= product.oldPrice + ' р.'
+
+//- Миксин для меню и подменю footer
+mixin menuFooterCategories(categories)
+	ul(class='menu-footer__list')
+		each category in categories 
+			li(class='menu-footer__item')
+				h3(class='menu-footer__title')= Object.keys(category)[0]
+					+menuFooterSubCategories(category[Object.keys(category)[0]])
+
+mixin menuFooterSubCategories(subcategories)
+	ul(class='menu-footer__sub-list')
+		each subcategory in subcategories
+			li(class='menu-footer__sub-item')
+				a(href=subcategory.url)= subcategory.name
+
 
 mixin listObject(id, items)
 	ul(class='nav' id=id)
