@@ -1,4 +1,11 @@
 header.header
 	.container
 		nav.nav
-			+list('nav', 'main', 'about us', 'services')
+			+menu(navHeader, 'nav__list', 'nav__item')
+			+button('Войти через VK', 'vk-login', 'button')
+			include ./../sections/user.pug
+			+categoryList(categoriesList, 'category__list', 'category__item', 'subtitle', 'sub__list', 'sub__item')
+			+inputField('Search', 'text', 'name-search', 'id-search', 'Введите placeholder')
+			+button('Избранное', 'user-favorites', 'button')
+			+link('user-link', 'Перейти к корзине', './pages/catalog.html')
+		

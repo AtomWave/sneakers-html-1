@@ -1,1 +1,127 @@
-- var titles = {index: 'Main Page',catalog: 'Catalog'};
+-
+	var	titlePage = {
+		index: 'Главная страница',
+		catalog: 'Каталог'
+	}
+
+-
+	var navHeaderLinks = {
+		index: 'Главная',
+		catalog: 'Каталог',
+		delivery: 'Оплата и доставка',
+		contact: 'Контакт'
+	}
+
+-
+	var navHeader = [
+		{
+			title: 'Главная',
+			url: '../index.html'
+		},
+		{
+			title: 'Каталог',
+			url: './pages/catalog.html'
+		},
+		{
+			title: 'Оплата и доставка',
+			url: './pages/delivery.html'
+		},
+		{
+			title: 'Контакт',
+			url: './pages/contact.html'
+		},
+	]
+
+-
+	var socialLinks = [
+		{},
+		{},
+		{}
+	]
+
+-
+	var categoriesList = [
+		{
+			'Обувь': [
+				{name: 'Кроссовки', url: 'hhh.html'},
+				{name: 'Кеды', url: '#'},
+				{name: 'Ботинки', url: '#'}
+			]
+		},
+		{
+			'Верхняя одежда': [
+				{name: 'Бомберы', url: '#'},
+				{name: 'Джинсовые куртки', url: '#'},
+				{name: 'Ветроки', url: '#'},
+				{name: 'Куртки', url: '#'},
+				{name: 'Пуховики', url: '#'}
+			]
+		},
+		{
+			'Верх': [
+				{name: 'Футболки', url: '#'},
+				{name: 'Поло', url: '#'},
+				{name: 'Худи', url: '#'},
+				{name: 'Лонгсливы', url: '#'}
+			]
+		},
+		{
+			'Низ': [
+				{name: 'Джинсы', url: '#'},
+				{name: 'Брюки', url: '#'},
+				{name: 'Шорты', url: '#'}
+			]
+		},
+		{
+			'Акксесуары': [
+				{name: 'Головные уборы', url: '#'},
+				{name: 'Сумки', url: '#'},
+				{name: 'Рюкзаки', url: '#'},
+				{name: 'Другое', url: '#'}
+			]
+		}
+	]
+
+- 
+	var priceCheckbox = [
+		{description: 'Менее 4 000 ₽', count: 26},
+		{description: '4 001 - 6 000 ₽', count: 24},
+		{description: '6 001 - 10 000 ₽', count: 23},
+		{description: '10 001 - 18 000 ₽', count: 26},
+		{description: '18 001 - 35 000 ₽', count: 26},
+		{description: '35 001 ₽ и более', count: 26}
+	]
+
+-
+	var firmCheckbox = [
+		{desc: 'Nike', count: 22},
+		{desc: 'Adidas', count: 22},
+		{desc: 'Reebock', count: 22},
+		{desc: 'New Balance', count: 22},
+		{desc: 'Vans', count: 22},
+		{desc: 'Old Older', count: 22},
+		{desc: 'Asics', count: 22},
+		{desc: 'Puma', count: 22}
+	]
+
+-
+	var products = [
+		{
+			imagePath: "./source/images/content/hero-img@1x.png",
+			name: "Product 1",
+			price: 29000,
+			oldPrice: 35000
+		},
+		{
+			imagePath: "./source/images/content/hero-img@1x.png",
+			name: "Product 2",
+			price: 100,
+			oldPrice: 120
+		},
+		{
+			imagePath: "./source/images/content/hero-img@1x.png",
+			name: "Product 3",
+			price: 100,
+			oldPrice: 120
+		}
+	]

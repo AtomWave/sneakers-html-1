@@ -15,9 +15,11 @@ const { series, parallel } = config.gulp
 export async function scripts() {
   await createScripts()
 }
+
 export async function optimizeVectors() {
   await optimizeVector()
 }
+
 export async function createStack() {
   await getStack()
 }
@@ -38,6 +40,7 @@ export const statics = (done) => {
 export async function del() {
   await removeBuild()
 }
+
 export async function copy() {
   await copyAssets()
 }

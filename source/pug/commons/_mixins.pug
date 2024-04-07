@@ -1,4 +1,101 @@
-mixin list(id, ...items)
-	ul(id=id)
+
+//- Mиксин для навигации между файлами из разных папок
+mixin menu(items, ulClass, liClass)
+	ul(class=ulClass)
+		each item in items 
+			li(class=liClass)
+				a(href=item.url)= item.title
+//-Use +menu(navHeader, 'nav__list', 'nav__item')
+
+//- Mиксин для кнопки
+mixin button(text='Кнопка', className='button', type='button')
+	button(type=type, class=className)= text
+//-Use +button('Войти через VK', 'vk-login', 'button')
+
+//- Mиксин для кнопки-ссылки
+mixin link(className, text, href='#')
+	a(class=className, href=href)= text
+//-Use +link('my-link-class', 'Перейти к каталогу', './pages/catalog.html')
+
+//- Mиксин для списка ul
+mixin list(items, ulClass, liClass)
+	ul(class=ulClass)
 		each item in items
-			li= item
+			li(class=liClass)= item
+//-Use +list(['Пункт 1', 'Пункт 2', 'Пункт 3'], 'my-ul-class', 'my-li-class')
+
+//- Mиксин для категории и подкатегорий каталога
+mixin categoryList (categories, ulClass, liClass, h3Class, subUlClass, subLiClass)
+	ul(class=ulClass)
+		each category in categories 
+			li(class=liClass)
+				h3(class=h3Class)= Object.keys(category)[0]
+					ul(class=subUlClass)
+						each subcategory in category[Object.keys(category)[0]]
+							li(class=subLiClass)
+								a(href=subcategory.url)= subcategory.name
+//-Use +categoryList(categoriesList, 'category__list', 'category__item', 'subtitle', 'sub__list', 'sub__item')
+
+mixin img(className, src, alt, width, height, ext)
+	picture
+		source(type='image/webp' srcet=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 600px)" width=width height=height)
+		source(type='image/webp' srcet=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 1200px)" width=width height=height)
+		source(type=`image/${ext}` srcet=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 600px)" width=width height=height)
+		source(type=`image/${ext}` srcet=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 1200px)" width=width height=height)
+		img(class=className src=`${src}@1x.${ext}`, alt=alt, width=width, height=height)
+
+//- Миксин для input
+mixin inputField(label, type, name, id, placeholder)
+	label(for=id)= label
+	input(type=type, name=name, id=id, placeholder=placeholder)
+//-Use +inputField('Search', 'text', 'name-search', 'id-search', 'Введите placeholder')
+
+//-Миксин для отдельного checkbox
+mixin checkbox(name, checked, id, labelText)
+	input(type="checkbox", name=name, checked=checked, id=id)
+	label(for=id)= labelText
+	
+
+//-Миксин для списка checkbox цена с количеством едениц товара
+mixin priceCheckboxList(priceCheckboxes, ulClass, liClass)
+	ol(class=ulClass)
+		each checkbox, index in priceCheckboxes
+			li(class=liClass)
+				label
+					input(type="checkbox", name='name_' + index, id='id_' + index)
+					|	#{checkbox.description}
+					span(id='span_' + index) (#{checkbox.count})
+//-Use +priceCheckboxList(priceCheckbox, 'my-ul-class', 'my-li-class')
+
+//- Миксин для чекбоксов с брендами и количеством
+mixin firmCheckboxList(firmCheckboxes, ulClass, liClass)
+	ul(class=ulClass)
+		each checkbox, index in firmCheckboxes
+			li(class=liClass)
+				label
+					input(type="checkbox", name='name_' + checkbox.desc, id='id_' + checkbox.desc)
+					|	#{checkbox.desc}
+					span(id='span_' + index) (#{checkbox.count})
+
+
+//- Миксин для карточки товара
+mixin productList(products, ulClass, liClass, imgClass, h3Class, currentPrice, oldPrice, currentPrice)
+	ul(class=ulClass)
+		each product in products
+			li(class=liClass)
+				img(class=imgClass, src=product.imagePath, alt=product.name)
+				h3(class=h3Class, name=product.name)
+				p(class=currentPrice)= "Цена: " + product.price + " ₽"
+				span(class=oldPrice)= "Старая цена: " + product.oldPrice + " ₽"
+
+mixin listObject(id, items)
+	ul(class='nav' id=id)
+		each item,key in items
+			li.nav__item= item
+
+//+navObject(navHeaderLinks)
+//mixin navObject(items) 
+	ul(class='nav')
+		each item, key in items
+			li.nav__item
+				a(href=`./${key}.html`)= item
