@@ -1,1 +1,23 @@
+.map {
+}
+.container {
+}
+.delivery {
+  display: flex;
 
+  // .delivery__image
+  &__image {
+  }
+  // .delivery__addres
+  &__addres {
+  }
+}
+.map-container {
+  background-image: url("../images/content/delivery_map.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 1122px;
+  height: 677px;
+  display: block;
+}
