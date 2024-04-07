@@ -79,14 +79,14 @@ mixin firmCheckboxList(firmCheckboxes, ulClass, liClass)
 
 
 //- Миксин для карточки товара
-mixin productList(products, ulClass, liClass, imgClass, h3Class, currentPrice, oldPrice, currentPrice)
-	ul(class=ulClass)
+mixin productList(products)
+	ul(class='product-list')
 		each product in products
-			li(class=liClass)
-				img(class=imgClass, src=product.imagePath, alt=product.name)
-				h3(class=h3Class, name=product.name)
-				p(class=currentPrice)= "Цена: " + product.price + " ₽"
-				span(class=oldPrice)= "Старая цена: " + product.oldPrice + " ₽"
+			li(class='product-list__item')
+				img(class='product-list__img', src=product.imagePath, alt=product.name)
+				h3(class='product-list__title', name=product.name)
+				p(class='current-price')= product.price + ' р.'
+				span(class='old-price')= product.oldPrice + ' р.'
 
 mixin listObject(id, items)
 	ul(class='nav' id=id)
