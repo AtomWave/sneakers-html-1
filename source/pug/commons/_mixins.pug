@@ -2,7 +2,7 @@
 //- Mиксин для навигации между файлами из разных папок
 mixin menu(items, ulClass, liClass)
 	ul(class=ulClass)
-		each item in items 
+		each item in items
 			li(class=liClass)
 				a(href=item.url)= item.title
 //-Use +menu(navHeader, 'nav__list', 'nav__item')
@@ -27,7 +27,7 @@ mixin list(items, ulClass, liClass)
 //- Mиксин для категории и подкатегорий каталога
 mixin categoryList (categories, ulClass, liClass, h3Class, subUlClass, subLiClass)
 	ul(class=ulClass)
-		each category in categories 
+		each category in categories
 			li(class=liClass)
 				h3(class=h3Class)= Object.keys(category)[0]
 					ul(class=subUlClass)
@@ -35,6 +35,18 @@ mixin categoryList (categories, ulClass, liClass, h3Class, subUlClass, subLiClas
 							li(class=subLiClass)
 								a(href=subcategory.url)= subcategory.name
 //-Use +categoryList(categoriesList, 'category__list', 'category__item', 'subtitle', 'sub__list', 'sub__item')
+
+mixin footerCategoryList (footerCategories, ulClass, liClass, h3Class, subUlClass, subLiClass)
+	ul(class=ulClass)
+		each footerCategory in footerCategories
+			li(class=liClass)
+				h3(class=h3Class)= Object.keys(footerCategory)[0]
+					ul(class=subUlClass)
+						each subcategory in footerCategory[Object.keys(footerCategory)[0]]
+							li(class=subLiClass)
+								a(href=subcategory.url)= subcategory.name
+//-Use +footerCategoryList(footerCategoryList, 'footer-category__list', 'footer-category__item', 'footer-subtitle', 'footer-sub__list', 'footer-sub__item')
+
 
 mixin img(className, src, alt, width, height, ext)
 	picture
@@ -54,7 +66,7 @@ mixin inputField(label, type, name, id, placeholder)
 mixin checkbox(name, checked, id, labelText)
 	input(type="checkbox", name=name, checked=checked, id=id)
 	label(for=id)= labelText
-	
+
 
 //-Миксин для списка checkbox цена с количеством едениц товара
 mixin priceCheckboxList(priceCheckboxes, ulClass, liClass)
@@ -94,7 +106,7 @@ mixin listObject(id, items)
 			li.nav__item= item
 
 //+navObject(navHeaderLinks)
-//mixin navObject(items) 
+//mixin navObject(items)
 	ul(class='nav')
 		each item, key in items
 			li.nav__item
