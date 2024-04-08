@@ -1,0 +1,41 @@
+section.price
+	.price__info
+		h1.info__title Рассчитать стоимость
+		p.info__text Расчет стоимости на 1 единицу товара с пойзона, без учёта стоимости доставки
+	fieldset.price__calculator
+		.calculator__currency
+			label(for="currency") Введите цену в юанях
+			input(type="text" name="currency" id="")
+		p.currency__title укажите валюту для рассчета стоимости
+		ul.currency__list
+			li.currency__item
+				input(type="checkbox" name="Rurus" checked)
+				label(for="Rurus") Российский рубль
+			li.currency__item
+				input(type="checkbox" name="Belrus")
+				label(for="Belrus") Белорусский рубль
+			li.currency__item
+				input(type="checkbox" name="tenge")
+				label(for="tenge") Казахстанский Тенге
+			li.currency__item
+				input(type="checkbox" name="som")
+				label(for="som") Киргизский сом
+		+button('Сбросить', 'button button__reset_price', 'reset')
+		.calculator__result
+			label(for="result") Результат
+			input(type="text" name="result" id="")
+		p.currency__title выберете, какую вещь планируете покупать
+		ul.currency__list
+			li.currency__item
+				input(type="checkbox" name="clothes" checked)
+				label(for="clothes")  Одежда
+			li.currency__item
+				input(type="checkbox" name="sneakers")
+				label(for="sneakers") Кроссовки
+			li.currency__item
+				input(type="checkbox" name="technique")
+				label(for="technique") Техника
+			li.currency__item
+				input(type="checkbox" name="other")
+				label(for="other") Другое
+		+button('Посчитать', 'button button__calculate_price', 'submit')

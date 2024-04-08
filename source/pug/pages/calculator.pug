@@ -1,0 +1,18 @@
+extends ./../layout/main.pug
+block variables
+block mixins
+	include ./../commons/_mixins.pug
+
+block head
+	title= titlePage.calculator
+//- block header
+//- 	include ./../layout/header.pug
+block content
+	main.main
+		include ./../sections/price.pug
+		include ./../sections/size.pug
+		include ./../sections/delivery.pug
+block footer
+	include ./../layout/footer.pug
+block scripts
+	script(type="module", src="js/script.min.js")

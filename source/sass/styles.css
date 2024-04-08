@@ -1,0 +1,37 @@
+.base-link {
+  background-color: #008968;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+.base-link--black {
+  background-color: #000000;
+}
+
+body {
+  background-color: #a4c7ea;
+}
+
+.tt {
+  margin: 0 auto;
+  display: flex;
+  color: #000;
+}
+
+.nav ul {
+  display: flex;
+}
+
+ul #list {
+  background-color: #26098f;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  overflow: hidden;
+  color: #0d7a13;
+}/*# sourceMappingURL=styles.css.map */
