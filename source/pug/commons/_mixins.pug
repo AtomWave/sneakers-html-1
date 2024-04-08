@@ -25,17 +25,17 @@ mixin list(items, ulClass, liClass)
 //-Use +list(['Пункт 1', 'Пункт 2', 'Пункт 3'], 'my-ul-class', 'my-li-class')
 
 //- Mиксин для категории и подкатегорий каталога
-mixin categoryList (categories, ulClass, liClass, h3Class, subUlClass, subLiClass)
-	ul(class=ulClass)
+mixin categoryList (categories)
+	ul(class='category__list')
 		each category in categories 
-			li(class=liClass)
-				h3(class=h3Class)= Object.keys(category)[0]
-					ul(class=subUlClass)
+			li(class='category__item')
+				h3(class='category__title')= Object.keys(category)[0]
+					ul(class='sub-category__list')
 						each subcategory in category[Object.keys(category)[0]]
-							li(class=subLiClass)
-								a(href=subcategory.url)= subcategory.name
-//-Use +categoryList(categoriesList, 'category__list', 'category__item', 'subtitle', 'sub__list', 'sub__item')
+							li(class='sub-category__list')
+								a(class='sub-category__link', href=subcategory.url)= subcategory.name
 
+//- Миксин для img
 mixin img(className, src, alt, width, height, ext)
 	picture
 		source(type='image/webp' srcet=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 600px)" width=width height=height)
@@ -43,6 +43,12 @@ mixin img(className, src, alt, width, height, ext)
 		source(type=`image/${ext}` srcet=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 600px)" width=width height=height)
 		source(type=`image/${ext}` srcet=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 1200px)" width=width height=height)
 		img(class=className src=`${src}@1x.${ext}`, alt=alt, width=width, height=height)
+
+//- Миксин для svg
+mixin inlineSvg(className, width, height, svgContent)
+	svg(class=className, width=width, height=height, viewBox='0 0 ' + width + ' ' + height, xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink")
+		!= svgContent
+	
 
 //- Миксин для input
 mixin inputField(label, type, name, id, placeholder)
@@ -54,29 +60,26 @@ mixin inputField(label, type, name, id, placeholder)
 mixin checkbox(name, checked, id, labelText)
 	input(type="checkbox", name=name, checked=checked, id=id)
 	label(for=id)= labelText
-	
 
 //-Миксин для списка checkbox цена с количеством едениц товара
-mixin priceCheckboxList(priceCheckboxes, ulClass, liClass)
-	ol(class=ulClass)
+mixin priceCheckboxList(priceCheckboxes)
+	ol(class='price-checkbox__list')
 		each checkbox, index in priceCheckboxes
-			li(class=liClass)
-				label
-					input(type="checkbox", name='name_' + index, id='id_' + index)
+			li(class='price-checkbox__item')
+				label(class='price-checkbox__label')
+					input(class='price-checkbox__input', type="checkbox", name='name_' + index, id='id_' + index)
 					|	#{checkbox.description}
-					span(id='span_' + index) (#{checkbox.count})
-//-Use +priceCheckboxList(priceCheckbox, 'my-ul-class', 'my-li-class')
+					span(class='checkbox__count', id='item_' + index) (#{checkbox.count})
 
 //- Миксин для чекбоксов с брендами и количеством
-mixin firmCheckboxList(firmCheckboxes, ulClass, liClass)
-	ul(class=ulClass)
+mixin firmCheckboxList(firmCheckboxes)
+	ul(class='firm-checkbox__list')
 		each checkbox, index in firmCheckboxes
-			li(class=liClass)
-				label
-					input(type="checkbox", name='name_' + checkbox.desc, id='id_' + checkbox.desc)
+			li(class='firm-checkbox__item')
+				label(class='firm-checkbox__label')
+					input(class='firm-checkbox__input', type="checkbox", name='name_' + checkbox.desc, id='id_' + checkbox.desc)
 					|	#{checkbox.desc}
-					span(id='span_' + index) (#{checkbox.count})
-
+					span(class='checkbox__count', id='item_' + index) (#{checkbox.count})
 
 //- Миксин для карточки товара
 mixin productList(products)
