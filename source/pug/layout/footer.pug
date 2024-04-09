@@ -1,4 +1,9 @@
 footer.footer
 	.footer__container
-		+link('footer__callback-link', 'Задать свой вопрос', '#')
-		+footerCategoryList(footerCategoryList, 'footer-category__list', 'footer-category__item', 'footer-subtitle', 'footer-sub__list', 'footer-sub__item')
+		.footer__callback-wrapper
+			+footerCallback(footerCallback)
+			+link('footer__callback-button', 'Задать свой вопрос', '#')
+		+menuFooter(menuFooter)
+		.footer__copyright
+			+link('footer__copyright-link', 'Пользовательское соглашение', '#')
+			p.footer__copyright-text  © 2022-2023 “Астраханская область”

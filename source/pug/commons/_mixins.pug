@@ -36,17 +36,19 @@ mixin categoryList (categories, ulClass, liClass, h3Class, subUlClass, subLiClas
 								a(href=subcategory.url)= subcategory.name
 //-Use +categoryList(categoriesList, 'category__list', 'category__item', 'subtitle', 'sub__list', 'sub__item')
 
-mixin footerCategoryList (footerCategories, ulClass, liClass, h3Class, subUlClass, subLiClass)
-	ul(class=ulClass)
-		each footerCategory in footerCategories
-			li(class=liClass)
-				h3(class=h3Class)= Object.keys(footerCategory)[0]
-					ul(class=subUlClass)
-						each subcategory in footerCategory[Object.keys(footerCategory)[0]]
-							li(class=subLiClass)
-								a(href=subcategory.url)= subcategory.name
-//-Use +footerCategoryList(footerCategoryList, 'footer-category__list', 'footer-category__item', 'footer-subtitle', 'footer-sub__list', 'footer-sub__item')
+//- Миксин для меню и подменю footer
+mixin menuFooter(categories)
+	ul(class='menu-footer__list')
+		each category in categories
+			li(class='menu-footer__item')
+				h3(class='menu-footer__title')= Object.keys(category)[0]
+					+menuFooterSubCategories(category[Object.keys(category)[0]])
 
+mixin menuFooterSubCategories(subcategories)
+	ul(class='menu-footer__sub-list')
+		each subcategory in subcategories
+			li(class='menu-footer__sub-item')
+				a(href=subcategory.url)= subcategory.name
 
 mixin img(className, src, alt, width, height, ext)
 	picture
@@ -111,3 +113,11 @@ mixin listObject(id, items)
 		each item, key in items
 			li.nav__item
 				a(href=`./${key}.html`)= item
+
+//- Миксин для обратной связи в футере
+mixin footerCallback(categories)
+	ul(class='footer__callback-list')
+		each category in categories
+			li(class='footer__callback-item')
+				a(href=category.url)=category.name
+
