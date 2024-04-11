@@ -5,15 +5,10 @@ header.header
 				| Логотип
 			nav.navigation
 				+menu(navHeader, 'navigation__list', 'navigation__item')
-				ul 
+				ul.navigation-icons__list
+					li.navigation-icons__item 
+						+inlineSvg('navigation-icons__notice', '20', '20', 'svg-bell', 'none', 'red')
 					li 
-						+inlineSvg('svg-class-1', '20', '20', 'svg-bell', 'none', 'red')
-					li 
-						+inlineSvg('svg-cl', '22', '22', 'svg-search', 'none', 'green')
+						+inlineSvg('navigation-icons__search', '22', '22', 'svg-search', 'none', 'green')
 				+button('Войти через VK', 'vk-login', 'button')
-				include ./../sections/user.pug
-				+categoryList(categoriesList)
-				+inputField('Search', 'text', 'name-search', 'id-search', 'Введите placeholder')
-				+button('Избранное', 'user-favorites', 'button')
-				+link('user-link', 'Перейти к корзине', './pages/catalog.html')
-		
+				include ./../sections/user.pug		

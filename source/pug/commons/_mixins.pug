@@ -81,15 +81,6 @@ mixin firmCheckboxList(firmCheckboxes)
 					span(class='checkbox__count', id='item_' + index) (#{checkbox.count})
 
 //- Миксин для карточки товара
-//mixin productList(products)
-	ul(class='product-list')
-		each product in products
-			li(class='product-list__item')
-				img(class='product-list__img', src=product.imagePath, alt=product.name)
-				h3(class='product-list__title')= product.name)
-				p(class='current-price')= product.price + ' р.'
-				span(class='old-price')= product.oldPrice + ' р.'
-
 mixin productList(products)
 	if(productItem)
 		ul(class='product-list')
@@ -132,10 +123,3 @@ mixin listObject(id, items)
 	ul(class='nav' id=id)
 		each item,key in items
 			li.nav__item= item
-
-//+navObject(navHeaderLinks)
-//mixin navObject(items) 
-	ul(class='nav')
-		each item, key in items
-			li.nav__item
-				a(href=`./${key}.html`)= item
