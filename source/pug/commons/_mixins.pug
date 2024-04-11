@@ -44,7 +44,7 @@ mixin img(className, src, alt, width, height, ext)
 		source(type=`image/${ext}` srcet=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 1200px)" width=width height=height)
 		img(class=className src=`${src}@1x.${ext}`, alt=alt, width=width, height=height)
 
-//- Миксин для svg SVG картинки из стека
+//- Миксин для SVG картинки из стека
 mixin inlineSvg(className, width, height, id, fill, stroke)
 	svg(class=className, width=width, height=height, fill=fill, stroke=stroke, viewBox='0 0 ' + width + ' ' + height, xmlns="http://www.w3.org/2000/svg")
 		use(xlink:href=`../images/icons/stack.svg#${id}`)
