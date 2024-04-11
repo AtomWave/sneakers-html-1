@@ -81,7 +81,7 @@ mixin firmCheckboxList(firmCheckboxes)
 					span(class='checkbox__count', id='item_' + index) (#{checkbox.count})
 
 //- Миксин для карточки товара
-mixin productList(products)
+//mixin productList(products)
 	ul(class='product-list')
 		each product in products
 			li(class='product-list__item')
@@ -89,6 +89,29 @@ mixin productList(products)
 				h3(class='product-list__title', name=product.name)
 				p(class='current-price')= product.price + ' р.'
 				span(class='old-price')= product.oldPrice + ' р.'
+
+mixin productList(products)
+	if(productItem)
+		ul(class='product-list')
+			each product in products
+				li(class='product-list__item')
+					a(class='poduct-list__link')
+						img(class='product-list__img', src=product.imagePath, alt=product.name)
+						h3(class='product-list__title')= product.name
+						p(class='current-price')= product.price + ' р.'
+						span(class='old-price')= product.oldPrice + ' р.'
+						if(productItemSeller)
+							span(class='product-list__status')= product.status
+	if(!productItem)
+		ul(class='product-list')
+			each product in products
+				li(class='product-list__item')
+					img(class='product-list__img', src=product.imagePath, alt=product.name)
+					h3(class='product-list__title')= product.name
+					p(class='current-price')= product.price + ' р.'
+					span(class='old-price')= product.oldPrice + ' р.'
+					if(productItemSeller)
+						span(class='product-list__status')= product.status
 
 //- Миксин для меню и подменю footer
 mixin menuFooterCategories(categories)
