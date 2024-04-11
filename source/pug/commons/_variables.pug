@@ -5,14 +5,6 @@
 	}
 
 -
-	var navHeaderLinks = {
-		index: 'Главная',
-		catalog: 'Каталог',
-		delivery: 'Оплата и доставка',
-		contact: 'Контакт'
-	}
-
--
 	var navHeader = [
 		{
 			title: 'Главная',
@@ -30,13 +22,6 @@
 			title: 'Контакт',
 			url: './pages/contact.html'
 		},
-	]
-
--
-	var socialLinks = [
-		{},
-		{},
-		{}
 	]
 
 -
@@ -107,19 +92,19 @@
 -
 	var products = [
 		{
-			imagePath: "./source/images/content/hero-img@1x.png",
-			name: "Product 1",
-			price: 29000,
-			oldPrice: 35000
+			imagePath: "./../images/content/hero-img@1x.png",
+			name: "New Balance 550",
+			price: 27590,
+			oldPrice: 29890
 		},
 		{
-			imagePath: "./source/images/content/hero-img@1x.png",
+			imagePath: "./../images/content/hero-img@1x.png",
 			name: "Product 2",
 			price: 100,
 			oldPrice: 120
 		},
 		{
-			imagePath: "./source/images/content/hero-img@1x.png",
+			imagePath: "./../images/content/hero-img@1x.png",
 			name: "Product 3",
 			price: 100,
 			oldPrice: 120
@@ -134,6 +119,7 @@
 				{name: 'Что такое Poizon?', url: '#'},
 				{name: 'Ссылка на Poizon', url: '#'},
 				{name: 'Наш пункт выдачи', url: '#'},
+				{name: 'Наш пункт выдачи', url: '#'}
 			]
 		},
 		{
@@ -167,7 +153,24 @@
 	var footerCallback = [
 		{name: 'Помощь', url: '#'},
 		{name: 'Пожаловаться', url: '#'},
-		{name: '+7 (495) 539-55-55', url: 'tel:+74955395555'}
-	]
-
-
+		{name: '+7 (495) 539-55-55', url: 'tel:+74955395555'},
+    {name: 'Верхняя одежда', url: '#'},
+    {name: 'Нижняя одежда', url: '#'},
+    {name: 'Техника', url: '#'},
+    {name: 'Другое', url: '#'},
+		{
+			'Оплата и доставка': [
+				{name: 'Калькулятор', url: './index.html'},
+				{name: 'Определение размера', url: '#'},
+				{name: 'Информация о доставке', url: '#'},
+				{name: 'Способы оплаты', url: '#'}
+			]
+		},
+		{
+			'Контакты': [
+				{name: 'Как с нами связаться?', url: './index.html'},
+				{name: 'Наш пункт выдачи', url: '#'},
+				{name: 'Помощь', url: '#'},
+				{name: 'FAQ', url: '#'}
+			]
+		}
