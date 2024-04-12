@@ -5,7 +5,7 @@ body {
 
 body {
   margin: 0;
-  min-width: $minWidth + px;
+  // min-width: $minWidth + px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -23,7 +23,7 @@ a {
 }
 
 .feedback {
-  color: $txt_basic;
+  // color: $txt_basic;
 }
 
 .feedback ul {
