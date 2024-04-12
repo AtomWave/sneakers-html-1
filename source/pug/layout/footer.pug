@@ -1,3 +1,12 @@
 footer.footer
-	.container
-		h2 Footer
+	.footer__container
+		.footer__callback-wrapper
+			+footerCallback(footerCallback)
+			+link('footer__callback-button', 'Задать свой вопрос', '#')
+		+menuFooter(menuFooter)
+		.footer__social-wrapper
+			+list(socialLinks, 'footer__social-list', 'footer__social-item')
+		.footer__copyright
+			+link('footer__copyright-link', 'Пользовательское соглашение', '#')
+			p.footer__copyright-text: <small>© 2022-2023 “Астраханская область”</small>
+
