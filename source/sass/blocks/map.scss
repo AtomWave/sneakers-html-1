@@ -1,18 +1,13 @@
 .map {
 }
 .container {
-  width: 1920px;
-  margin: 0px auto;
 }
 .delivery {
-  display: flex;
-
   // .delivery__image
   &__image {
   }
   // .delivery__content
   &__content {
-    padding: 152px 119px 119px;
   }
 }
 
@@ -20,15 +15,12 @@
 .delivery-content {
   // .delivery-content__title
   &__title {
-    margin: 0;
   }
   // .delivery-content__text
   &__text {
-    margin: 0;
   }
   // .delivery-content__time
   &__time {
-    margin: 0;
   }
 }
 
