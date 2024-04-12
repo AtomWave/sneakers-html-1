@@ -1,6 +1,6 @@
 import { config } from "../gulp-config.js";
 
-const { scssCSS, plumber_watch, browser_2_server, minifyCSS, rename, postcss, clean_css, autoprefixer, concat } = config.tasks;
+const { scssCSS, plumber_watch, browser_2_server, minifyCSS, rename, postcss, autoprefixer, concat } = config.tasks;
 const { src, dest, watch, series } = config.gulp;
 const { source, build, scss } = config.paths;
 
@@ -10,7 +10,6 @@ function watcherSCSS() {
 
 export const scss2CSS = () => {
   return src(`${source}sass/*.scss`, { sourcemaps: true }).pipe(scssCSS({ pretty: true, }))
-    .pipe(clean_css())
     .pipe(plumber_watch())
     .pipe(scssCSS().on('error', scssCSS.logError))
     .pipe(postcss([
@@ -20,8 +19,8 @@ export const scss2CSS = () => {
     ]))
     .pipe(concat('css/style.css'))
     .pipe(minifyCSS())
-    .pipe(rename('style.min.css'))
-    .pipe(dest(`${build}css`, { sourcemaps: '.' }))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(dest(`${build}`, { sourcemaps: '.' }))
     .pipe(browser_2_server.stream());
 }
 

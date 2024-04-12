@@ -2,7 +2,7 @@
 //- Mиксин для навигации
 mixin menu(items, ulClass, liClass)
 	ul(class=ulClass)
-		each item in items 
+		each item in items
 			li(class=liClass)
 				a(href=item.url)= item.title
 //-Use +menu(navHeader, 'nav__list', 'nav__item')
@@ -25,6 +25,7 @@ mixin list(items, ulClass, liClass)
 //-Use +list(['Пункт 1', 'Пункт 2', 'Пункт 3'], 'my-ul-class', 'my-li-class')
 
 //- Mиксин для категории и подкатегорий каталога
+
 mixin categoryList (categories)
 	ul(class='category__list')
 		each category in categories 
@@ -35,13 +36,18 @@ mixin categoryList (categories)
 							li(class='sub-category__list')
 								a(class='sub-category__link', href=subcategory.url)= subcategory.name
 
-//- Миксин для img
+mixin menuFooterSubCategories(subcategories)
+	ul(class='menu-footer__sub-list')
+		each subcategory in subcategories
+			li(class='menu-footer__sub-item')
+				a(href=subcategory.url)= subcategory.name
+
 mixin img(className, src, alt, width, height, ext)
 	picture
-		source(type='image/webp' srcet=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 600px)" width=width height=height)
-		source(type='image/webp' srcet=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 1200px)" width=width height=height)
-		source(type=`image/${ext}` srcet=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 600px)" width=width height=height)
-		source(type=`image/${ext}` srcet=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 1200px)" width=width height=height)
+		source(type='image/webp' srcset=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 600px)" width=width height=height)
+		source(type='image/webp' srcset=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 1200px)" width=width height=height)
+		source(type=`image/${ext}` srcset=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 600px)" width=width height=height)
+		source(type=`image/${ext}` srcset=`${src}@1x.${ext} 1x, ${src}@2x.${ext} 2x` media="(min-width: 1200px)" width=width height=height)
 		img(class=className src=`${src}@1x.${ext}`, alt=alt, width=width, height=height)
 
 //- Миксин для SVG картинки из стека
@@ -123,3 +129,17 @@ mixin listObject(id, items)
 	ul(class='nav' id=id)
 		each item,key in items
 			li.nav__item= item
+
+//+navObject(navHeaderLinks)
+//mixin navObject(items)
+	ul(class='nav')
+		each item, key in items
+			li.nav__item
+				a(href=`./${key}.html`)= item
+
+//- Миксин для обратной связи в футере
+mixin footerCallback(categories)
+	ul(class='footer__callback-list')
+		each category in categories
+			li(class='footer__callback-item')
+				a(href=category.url)=category.name
