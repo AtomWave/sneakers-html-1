@@ -1,0 +1,17 @@
+body {
+  background-color: #a4c7ea;
+}
+
+.tt {
+  margin: 0 auto;
+  display: flex;
+  color: #000;
+}
+
+.nav ul {
+  display: flex;
+}
+
+ul #list {
+  background-color: #26098f;
+}/*# sourceMappingURL=block.css.map */
