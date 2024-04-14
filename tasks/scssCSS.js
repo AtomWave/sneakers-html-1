@@ -19,8 +19,8 @@ export const scss2CSS = () => {
     ]))
     .pipe(concat('css/style.css'))
     .pipe(minifyCSS())
-    .pipe(rename('style.min.css'))
-    .pipe(dest(`${build}css`, { sourcemaps: '.' }))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(dest(`${build}`, { sourcemaps: '.' }))
     .pipe(browser_2_server.stream());
 }
 
