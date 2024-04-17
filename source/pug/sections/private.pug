@@ -1,0 +1,94 @@
+section.private
+	.container
+		.private__user-account
+			.private__user-photo
+			<img src="#" alt="Фото пользователя.">
+			.private__user-nickname
+			h3 Никита Бульдозеров
+			p Авторизированный аккаунт
+
+		.private__user-settings
+			details
+				summary Настройки аккаунта
+				p Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
+			details
+				summary Текущие заказы
+				p Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
+			details
+				summary История заказов
+				p Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
+			details
+				summary Поддержка
+				p Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
+			details
+				summary Партнерские программы
+				p Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
+
+		.private__shipping.shipping
+			.shipping__title
+				h2 Ближайшая доставка
+			dl.shipping__list
+				dt: a.shipping__query(href="#")
+					| Информация о заказе
+				dd.shipping__reply: p
+					| Номер заказа: 1632
+
+				dt: a.shipping__query(href="#")
+					| Где мой заказ?
+				dd.shipping__reply: p
+					| <a href="#" target="_blank">Давайте отследим</a>
+
+				dt: a.shipping__query(href="#")
+					| Информация о доставке
+				dd.shipping__reply: p
+					| Посылка находится в сц
+
+				dt: a.shipping__query(href="#")
+					| Куда придет заказ?
+				dd.shipping__reply: address
+					| ул. Н. Островского, д. 51
+
+				dt: a.shipping__query(href="#")
+					| Примерная дата доставки
+				dd.shipping__reply: p
+					| <time datetime="2024-01-19T15:00+03:00">19 января в 15:00</time>
+
+				dt: a.shipping__query(href="#")
+					| Статус посылки не меняется?
+				dd.shipping__reply: p
+					| <a href="#" target="_blank">Обратиться в поддержку</a>
+
+		.private__menu.quick-menu
+			h2 Быстрое меню
+			dl.quick-menu__list
+				dt: a.quick-menu__query(href="#")
+					| Какие карты принимаются
+				dd.quick-menu__reply: p
+					| Lorem ipsum dolor sit amet.
+
+				dt: a.quick-menu__query(href="#")
+					| Примерные сроки доставки
+				dd.quick-menu__reply: p
+					| Lorem ipsum dolor sit amet.
+
+				dt: a.quick-menu__query(href="#")
+					| Наш пункт выдачи
+				dd.quick-menu__reply: p
+					| Lorem ipsum dolor sit amet.
+
+				dt: a.quick-menu__query(href="#")
+					| Другие проекты
+				dd.quick-menu__reply: p
+					| Lorem ipsum dolor sit amet.
+
+		.private__promocode.share
+			h2.share__title Приведи своего друга и получи промокод на бесплатный Legit Check
+			p Подробнее о реферальной системе
+			.share-period
+				p Акция действует до
+				time(datetime="2023-05-01") 01.05.2023
+
+
+
+
+
