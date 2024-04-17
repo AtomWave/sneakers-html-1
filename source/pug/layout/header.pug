@@ -5,10 +5,15 @@ header.header
 				| Логотип
 			nav.navigation
 				+menu(navHeader, 'navigation__list', 'navigation__item')
-				ul.navigation-icons__list
-					li.navigation-icons__item 
+				ul.navigation-icons__list.navigation-icons__main
+					li.navigation-icons__item
 						+inlineSvg('navigation-icons__notice', '20', '20', 'svg-bell', 'none', 'red')
 					li 
 						+inlineSvg('navigation-icons__search', '22', '22', 'svg-search', 'none', 'green')
-				+button('Войти через VK', 'vk-login', 'button')
-				include ./../sections/user.pug		
+				ul.navigation-icons__list.navigation-icons__catalog
+					li
+						+inlineSvg('user-icons__basket', '25', '24', 'svg-basket', 'none', 'black')
+					li 
+						<svg width="25" height="25" fill="pink" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 896a42.667 42.667 0 01-30.293-12.373L150.187 551.68a224.427 224.427 0 010-315.733 223.573 223.573 0 01315.733 0l46.08 46.08 46.08-46.08a223.573 223.573 0 01315.733 0 224.427 224.427 0 010 315.733l-331.52 331.947A42.667 42.667 0 01512 896z"/></svg>
+					+button('Войти через VK', 'vk-login', 'button')
+					include ./../sections/user-navigation-header.pug

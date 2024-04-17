@@ -130,13 +130,6 @@ mixin listObject(id, items)
 		each item,key in items
 			li.nav__item= item
 
-//+navObject(navHeaderLinks)
-//mixin navObject(items)
-	ul(class='nav')
-		each item, key in items
-			li.nav__item
-				a(href=`./${key}.html`)= item
-
 //- Миксин для обратной связи в футере
 mixin footerCallback(categories)
 	ul(class='footer__callback-list')
