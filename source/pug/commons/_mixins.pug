@@ -28,7 +28,7 @@ mixin list(items, ulClass, liClass)
 
 mixin categoryList (categories)
 	ul(class='category__list')
-		each category in categories 
+		each category in categories
 			li(class='category__item')
 				h3(class='category__title')= Object.keys(category)[0]
 					ul(class='sub-category__list')
@@ -113,7 +113,7 @@ mixin productList(products)
 //- Миксин для меню и подменю footer
 mixin menuFooterCategories(categories)
 	ul(class='menu-footer__list')
-		each category in categories 
+		each category in categories
 			li(class='menu-footer__item')
 				h3(class='menu-footer__title')= Object.keys(category)[0]
 					+menuFooterSubCategories(category[Object.keys(category)[0]])
@@ -143,3 +143,10 @@ mixin footerCallback(categories)
 		each category in categories
 			li(class='footer__callback-item')
 				a(href=category.url)=category.name
+
+//- Боковое меню для страницы избранное
+mixin asideMenu(categories)
+	ul(class='aside-menu__list')
+		each category in categories
+			li(class='aside-menu__item')
+				a(href=category.url)= category.name
