@@ -136,3 +136,17 @@ mixin footerCallback(categories)
 		each category in categories
 			li(class='footer__callback-item')
 				a(href=category.url)=category.name
+
+//- Миксин для мобильного меню Главная страница
+mixin menuMobileCategories(categories)
+	ul(class='menu-footer__list')
+		each category in categories 
+			li(class='menu-footer__item')
+				h3(class='menu-footer__title')= Object.keys(category)[0]
+					+menuMobileSubCategories(category[Object.keys(category)[0]])
+
+mixin menuMobileSubCategories(subcategories)
+	ul(class='menu-footer__sub-list')
+		each subcategory in subcategories
+			li(class='menu-footer__sub-item')
+				a(href=subcategory.url)= subcategory.name
