@@ -12,6 +12,13 @@ mixin button(text='Кнопка', className='button', type='button')
 	button(type=type, class=className)= text
 //-Use +button('Войти через VK', 'vk-login', 'button')
 
+//- Миксин для списка кнопок
+mixin listButton(...items)
+	ol(class='button-list')
+		each item in items
+			li
+				button(class='button' type='button')= item
+
 //- Mиксин для кнопки-ссылки
 mixin link(className, text, href='#')
 	a(class=className, href=href)= text
@@ -28,7 +35,7 @@ mixin list(items, ulClass, liClass)
 
 mixin categoryList (categories)
 	ul(class='category__list')
-		each category in categories 
+		each category in categories
 			li(class='category__item')
 				h3(class='category__title')= Object.keys(category)[0]
 					ul(class='sub-category__list')
@@ -113,7 +120,7 @@ mixin productList(products)
 //- Миксин для меню и подменю footer
 mixin menuFooterCategories(categories)
 	ul(class='menu-footer__list')
-		each category in categories 
+		each category in categories
 			li(class='menu-footer__item')
 				h3(class='menu-footer__title')= Object.keys(category)[0]
 					+menuFooterSubCategories(category[Object.keys(category)[0]])

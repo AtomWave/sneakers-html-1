@@ -1,26 +1,21 @@
 section.filters
 	.container
 		h2.filters-title Фильтры
-		button Сбросить всё
+		+button('Сбросить всё', 'filters-button', 'reset')
 		h3.filters-subtitle Настройте параметры для более точного поиска
 		form.form(action="#" method="post")
-			ul.form-list
-				li.form-item
-					input(type="checkbox" id="availability")
-					label.form-title(for="availability") В наличии на складе
-				li.form-item
-					input(type="checkbox" id="order")
-					label.form-title(for="order") Под заказ с Poizon
+			+checkbox('form-input', 'checked', 'availability', 'В наличии на складе')
+			+checkbox('form-input', 'checked', 'order', 'Под заказ с Poizon')
 			fieldset.form-price
 				legend.form-price__title Стоимость
-				input(type="number")
-				input(type="number")
+				+inputField('', 'number', 'min', 'min-price', 'от 1 299')
+				+inputField('', 'number', 'max', 'max-price', 'до 289 999')
 				+priceCheckboxList(priceCheckbox)
 			fieldset.form-brand
 				legend.form-brand__title Бренд
 				+firmCheckboxList(firmCheckbox)
 			fieldset.form-size
 				legend.form-size__title Размер
-				input(type="number")
-				input(type="number")
+				+inputField('', 'number', 'min', 'min-size', 'от 40')
+				+inputField('', 'number', 'max', 'max-size', 'до 46')
 
