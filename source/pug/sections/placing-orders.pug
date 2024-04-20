@@ -1,0 +1,57 @@
+section.placing-order
+	h1.placing-order__title Оформление заказа
+	aside.order-menu
+		form(action="" method="POST").placing-order__form
+			fieldset.placing-order__form-name
+				legend.placing-order__text Заполните вашу контактную информацию
+				label(for="name") Имя Фамилия
+				input(type="text" name="name" id="name" placeholder='Никита Бульдозеров' required)
+				label(for="phone") Номер телефона*
+				input(type="tel" name="phone" id="phone" placeholder='+7 000 00-00-00' required)
+			fieldset.placing-order__form-obtaining
+				legend.placing-order__text Выберите способ получения вашего заказа
+				ul.placing-order__form-list
+					li.placing-order__form-item: +button('Самовывоз', 'placing-order__form-button', 'button')
+					li.placing-order__form-item: +button('Доставка', 'placing-order__form-button placing-order__form-button--active', 'button')
+					li.placing-order__form-item: +button('Укажите ближайший пункт СДЭК', 'placing-order__form-button', 'button')
+
+			fieldset.placing-order__form-payment
+				legend.placing-order__text Выберите способ оплаты
+				ul.placing-order__form-list
+					li.placing-order__form-item: +button('При получении', 'placing-order__form-button', 'button')
+					li.placing-order__form-item: +button('Онлайн', 'placing-order__form-button placing-order__form-button--active', 'button')
+					li.placing-order__form-item: +button('Ю касса', 'placing-order__form-button', 'button')
+
+				//- +asideMenu(asideMenu)
+			+link('placing-order__form-link', 'Оформить заказ', '#')
+		.placing-order__worth
+			ul.worth__list
+				li.worth__item
+					p.worth__cart-cost
+						span#cartCount
+						|	18 товаров на сумму:
+						span#cartCost 428 382 ₽
+				li.worth__item
+					+checkbox('all-items', checked, 'all-items', 'Выбрать все')
+				li.worth__item
+					+button('Удалить выбранное', 'worth__button-reset', 'reset')
+				li.worth__item
+					+link('worth__item-link', 'Вернуться к оформлению', '#')
+				li.worth__item
+					+link('worth__item-link', 'Перейти к каталогу', '#')
+				li.worth__item
+					+link('worth__item-link', 'Перейти к избранному', '#')
+				li.worth__item
+					+link('worth__item-link', 'Вернуться в корзину', '#')
+		.placing-order__selected-products
+			ul.placing-order__list
+				li.placing-order__items
+					+checkbox('item', checked, 'item', 'Товар')
+					//- img.selected-products__image
+					h2.placing-order__cart-title: +link('placing-order__cart-link', 'Zion Williamson x Air Jordan 1 Retro Low OG "Voodoo"', '#')
+					p.placing-order__size Размер:
+						span#orderSize 41
+					.placing-order__terms-wrapper
+						dl.terms-wrapper
+							dt.terms-wrapper__setting Цена:
+							dd.terms-wrapper__element 23 799 ₽

@@ -4,16 +4,14 @@ block mixins
 	include ./../commons/_mixins.pug
 
 block head
-	title= titlePage.catalog
+	title= titlePage.payment
 block header
 	include ./../layout/header.pug
 block content
 	main.main
-		include ./../sections/catalog-head.pug
-		include ./../sections/filters.pug
-		include ./../sections/categories.pug
-		include ./../sections/card.pug
+		include ./../sections/placing-orders.pug
+
 block footer
 	include ./../layout/footer.pug
 block scripts
-	script(type="module", src="js/script.min.js")
+	script(type="module", src="./../pages/js/script.min.js")
