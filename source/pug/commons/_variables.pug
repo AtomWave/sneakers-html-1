@@ -6,6 +6,12 @@
 		payment: 'Оформление заказа'
 	}
 
+
+	
+-
+	var isCatalogPage = true;
+
+
 -
 	var navHeader = [
 		{
@@ -20,9 +26,65 @@
 			title: 'Оплата и доставка',
 			url: './pages/delivery.html'
 		},
-		{
+		{  
 			title: 'Контакт',
 			url: './pages/contact.html'
+		}
+	]
+
+- 
+	var mobileMenuMain = [
+		{
+			'Основные': [
+				{name: 'Главная страница', url: './index.html'},
+				{name: 'Каталог товаров', url: '#'},
+				{name: 'Калькулятор и индифицатор', url: '#'},
+				{name: 'Контакты', url: '#'}
+			]
+		},
+		{
+			'Каталог': [
+				{name: 'Избранное', url: '#'},
+				{name: 'Корзина товаров', url: '#'}
+			]
+		},
+		{
+			'Личный профиль': [
+				{name: 'Аккаунт', url: '#'},
+				{name: 'История заказов', url: '#'},
+				{name: 'Текущие заказы', url: '#'},
+				{name: 'Партнерская программа', url: '#'}
+			]
+		},
+		{
+			'Доп. разделы': [
+				{name: 'Faq', url: '#'},
+				{name: 'Наши соцсети', url: '#'}
+			]
+		}
+	]
+
+-
+	var mobileMenuCatalog = [
+		{
+			title: 'Главная',
+			url: '../index.html'
+		},
+		{
+			title: 'Избранное',
+			url: '#'
+		},
+		{
+			title: 'Каталог',
+			url: './pages/catalog.html'
+		},
+		{
+			title: 'Корзина',
+			url: '#'
+		},
+		{  
+			title: 'Профиль',
+			url: '#'
 		}
 	]
 
