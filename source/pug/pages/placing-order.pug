@@ -4,7 +4,7 @@ block mixins
 	include ./../commons/_mixins.pug
 
 block head
-	title= titlePage.calculator
+	title= titlePage.payment
 block header
 	include ./../layout/header.pug
 block content
@@ -14,4 +14,4 @@ block content
 block footer
 	include ./../layout/footer.pug
 block scripts
-	script(type="module", src="js/script.min.js")
+	script(type="module", src="./../pages/js/script.min.js")
