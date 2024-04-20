@@ -4,15 +4,13 @@ block mixins
 	include ./../commons/_mixins.pug
 
 block head
-	title= titlePage.catalog
+	title= titlePage.calculator
 block header
 	include ./../layout/header.pug
 block content
 	main.main
-		include ./../sections/catalog-head.pug
-		include ./../sections/filters.pug
-		include ./../sections/categories.pug
-		include ./../sections/card.pug
+		include ./../sections/featured-products.pug
+
 block footer
 	include ./../layout/footer.pug
 block scripts
