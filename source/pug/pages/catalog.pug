@@ -1,5 +1,7 @@
 extends ./../layout/main.pug
 block variables
+	include ./../commons/_variables.pug
+	- var isCatalogPage = true
 block mixins
 	include ./../commons/_mixins.pug
 
@@ -7,7 +9,7 @@ block head
 	title= titlePage.catalog
 block header
 	include ./../layout/header.pug
-block content
+block content 
 	main.main
 		include ./../sections/catalog-head.pug
 		include ./../sections/categories.pug
