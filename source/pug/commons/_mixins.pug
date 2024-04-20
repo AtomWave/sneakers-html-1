@@ -12,6 +12,13 @@ mixin button(text='Кнопка', className='button', type='button')
 	button(type=type, class=className)= text
 //-Use +button('Войти через VK', 'vk-login', 'button')
 
+//- Миксин для списка кнопок
+mixin listButton(...items)
+	ol(class='button-list')
+		each item in items
+			li
+				button(class='button' type='button')= item
+
 //- Mиксин для кнопки-ссылки
 mixin link(className, text, href='#')
 	a(class=className, href=href)= text
