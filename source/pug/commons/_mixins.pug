@@ -143,3 +143,10 @@ mixin footerCallback(categories)
 		each category in categories
 			li(class='footer__callback-item')
 				a(href=category.url)=category.name
+
+//- Боковое меню для страницы избранное
+mixin asideMenu(categories)
+	ul(class='aside-menu__list')
+		each category in categories
+			li(class='aside-menu__item')
+				a(href=category.url)= category.name
