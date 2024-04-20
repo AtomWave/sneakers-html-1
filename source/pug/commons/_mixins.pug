@@ -89,8 +89,8 @@ mixin firmCheckboxList(firmCheckboxes)
 		each checkbox, index in firmCheckboxes
 			li(class='firm-checkbox__item')
 				label(class='firm-checkbox__label')
-					input(class='firm-checkbox__input', type="checkbox", name='name_' + checkbox.desc, id='id_' + checkbox.desc)
-					|	#{checkbox.desc}
+					input(class='firm-checkbox__input', type="checkbox", name='name_' + checkbox.description, id='id_' + checkbox.description)
+					|	#{checkbox.description}
 					span(class='checkbox__count', id='item_' + index) (#{checkbox.count})
 
 //- Миксин для карточки товара
@@ -150,3 +150,10 @@ mixin footerCallback(categories)
 		each category in categories
 			li(class='footer__callback-item')
 				a(href=category.url)=category.name
+
+//- Боковое меню для страницы избранное
+mixin asideMenu(categories)
+	ul(class='aside-menu__list')
+		each category in categories
+			li(class='aside-menu__item')
+				a(href=category.url)= category.name

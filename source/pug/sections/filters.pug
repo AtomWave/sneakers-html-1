@@ -1,8 +1,8 @@
 section.filters
 	.container
 		h2.filters-title Фильтры
-		+button('Сбросить всё', 'filters-button', 'reset')
 		h3.filters-subtitle Настройте параметры для более точного поиска
+    +button('Сбросить всё', 'filters-button', 'reset')#buttonReset
 		form.form(action="#" method="post")
 			+checkbox('form-input', 'checked', 'availability', 'В наличии на складе')
 			+checkbox('form-input', 'checked', 'order', 'Под заказ с Poizon')
@@ -16,6 +16,6 @@ section.filters
 				+firmCheckboxList(firmCheckbox)
 			fieldset.form-size
 				legend.form-size__title Размер
+        
 				+inputField('', 'number', 'min', 'min-size', 'от 40')
 				+inputField('', 'number', 'max', 'max-size', 'до 46')
-
