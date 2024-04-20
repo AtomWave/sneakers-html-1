@@ -3,28 +3,28 @@ section.private
 		.private__page
 			.private__user-profile.profile
 				.profile__user-account
-					.private__user-photo
-						<img src="#" alt="Фото пользователя.">
+					.private__user-photo#avatar
+						img(src="#" alt="Фото пользователя.")
 					.private__user-nickname
-						h3 Никита Бульдозеров
-						p Авторизированный аккаунт
+						h3.private__username Никита Бульдозеров
+						p.private__status Авторизированный аккаунт
 
 				.profile__user-settings
 					details
-						summary Настройки аккаунта
-						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
+						summary.settings__title Настройки аккаунта
+						p.settings__description Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
 					details
-						summary Текущие заказы
-						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
+						summary.settings__title Текущие заказы
+						p.settings__description Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
 					details
-						summary История заказов
-						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
+						summary.settings__title История заказов
+						p.settings__description Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
 					details
-						summary Поддержка
-						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
+						summary.settings__title Поддержка
+						p.settings__description Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
 					details
-						summary Партнерские программы
-						p Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
+						summary.settings__title Партнерские программы
+						p.settings__description Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, consectetur.
 
 			.private__shipping.shipping
 				.shipping__title
@@ -85,9 +85,9 @@ section.private
 
 			.private__promocode.share
 				h2.share__title Приведи своего друга и получи промокод на бесплатный Legit Check
-				p Подробнее о реферальной системе
+				p.share__subtitle Подробнее о реферальной системе
 				.share-period
-					p Акция действует до
+					p.share-period__title Акция действует до
 					time(datetime="2023-05-01") 01.05.2023
 
 
