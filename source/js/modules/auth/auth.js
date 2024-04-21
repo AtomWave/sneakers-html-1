@@ -1,6 +1,6 @@
-const registrationButton = document.querySelector('.registration-button');
-const registrationForm = document.querySelector('.registration-form');
-const userProfite = document.querySelector('.user');
+const registrationButton = document.querySelector('.header-navigation__registration-button');
+const registrationForm = document.querySelector('.registration-modal__form');
+const userProfite = document.querySelector('.user-navigation-header');
 const imageUploadButton = registrationForm.querySelector('.img-upload__input');
 const usersImagePreviews = registrationForm.querySelector('.upload-img');
 
