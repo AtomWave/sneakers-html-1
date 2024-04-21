@@ -10,6 +10,7 @@ block head
 	title= titlePage.index
 block header
 	include ./layout/header.pug
+	include ./sections/registration-modal.pug
 block content
 	main.main
 		include ./sections/intro.pug
@@ -18,7 +19,6 @@ block content
 		include ./sections/map.pug
 		include ./sections/faq.pug
 		include ./sections/private.pug
-		include ./sections/registration-modal.pug
 block footer
 	include ./layout/footer.pug
 block scripts
