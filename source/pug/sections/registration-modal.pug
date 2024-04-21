@@ -1,0 +1,7 @@
+div.registration-modal
+	fieldset.registration-modal__form
+		legend.registration-modal__title Регистрация
+		input(class="registration-modal__input" type="text" name="name" id="name" placeholder="Имя Фамилия" required)
+		input(class="registration-modal__input" type="email" name="email" id="email" placeholder="Ваш email" required)
+		input(class="registration-modal__input-image-upload" type="file" name="image-upload" id="image-upload")
+		+button('Отправить', 'registration-modal button', 'submit')
