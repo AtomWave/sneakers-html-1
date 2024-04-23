@@ -4,14 +4,11 @@ block mixins
 	include ./../commons/_mixins.pug
 
 block head
-	title= titlePage.calculator
+	title= titlePage.calc_settings
 block header
 	include ./../layout/header.pug
 block content
 	main.main
-		include ./../sections/price.pug
-		include ./../sections/size.pug
-		include ./../sections/delivery.pug
 		include ./../sections/calc_settings_user_menu.pug
 		include ./../sections/calc_settings.pug
 block footer

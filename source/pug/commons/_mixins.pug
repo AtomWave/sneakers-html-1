@@ -10,7 +10,7 @@ mixin menu(items, ulClass, liClass, aClass)
 //- Миксин для мобильного меню Главная страница
 mixin menuMobileCategories(categories)
 	ul(class='mobile-navigation-main__list')
-		each category in categories 
+		each category in categories
 			li(class='mobile-navigation-main__item')
 				h3(class='mobile-navigation-main__title')= Object.keys(category)[0]
 					+menuMobileSubCategories(category[Object.keys(category)[0]])
@@ -162,4 +162,11 @@ mixin asideMenu(categories)
 	ul(class='aside-menu__list')
 		each category in categories
 			li(class='aside-menu__item')
+				a(href=category.url)= category.name
+
+//- Боковое меню для страницы Настройки калькулятора
+mixin asideMenuCalcSettings(categories)
+	ul(class='asideMenuCalcSettings__list')
+		each category in categories
+			li(class='asideMenuCalcSettings__item')
 				a(href=category.url)= category.name
