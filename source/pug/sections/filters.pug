@@ -1,0 +1,21 @@
+section.filters
+	.container
+		h2.filters-title Фильтры
+		h3.filters-subtitle Настройте параметры для более точного поиска
+		+button('Сбросить всё', 'filters-button', 'reset')#buttonReset
+		form.form(action="#" method="post")
+			+checkbox('form-input', 'checked', 'availability', 'В наличии на складе')
+			+checkbox('form-input', 'checked', 'order', 'Под заказ с Poizon')
+			fieldset.form-price
+				legend.form-price__title Стоимость
+				+inputField('', 'number', 'min', 'min-price', 'от 1 299')
+				+inputField('', 'number', 'max', 'max-price', 'до 289 999')
+				+priceCheckboxList(priceCheckbox)
+			fieldset.form-brand
+				legend.form-brand__title Бренд
+				+firmCheckboxList(firmCheckbox)
+			fieldset.form-size
+				legend.form-size__title Размер
+        
+				+inputField('', 'number', 'min', 'min-size', 'от 40')
+				+inputField('', 'number', 'max', 'max-size', 'до 46')

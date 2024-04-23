@@ -1,9 +1,11 @@
 section.items-cart
 	h1.items-cart__title Корзина товаров
 	fieldset.items-cart__worth
+		p.worth__cart-cost
+			span#totalProducts 6
+			|	товаров на сумму:
+			span#totalProductsPrice 142 794 ₽
 		ul.worth__list
-			li.worth__item
-				p.worth__cart-cost 6 товаров на сумму:  142 794 ₽
 			li.worth__item
 				+checkbox('all-items', 'checked', 'all-items', 'Все товары')
 			li.worth__item

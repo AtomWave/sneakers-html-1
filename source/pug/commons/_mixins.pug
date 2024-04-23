@@ -1,16 +1,43 @@
 
 //- Mиксин для навигации
-mixin menu(items, ulClass, liClass)
+mixin menu(items, ulClass, liClass, aClass)
 	ul(class=ulClass)
 		each item in items
 			li(class=liClass)
-				a(href=item.url)= item.title
+				a(class=aClass href=item.url)= item.title
 //-Use +menu(navHeader, 'nav__list', 'nav__item')
+
+//- Миксин для мобильного меню Главная страница
+mixin menuMobileCategories(categories)
+	ul(class='mobile-navigation-main__list')
+		each category in categories 
+			li(class='mobile-navigation-main__item')
+				h3(class='mobile-navigation-main__title')= Object.keys(category)[0]
+					+menuMobileSubCategories(category[Object.keys(category)[0]])
+mixin menuMobileSubCategories(subcategories)
+	ul(class='mobile-navigation-main__sublist')
+		each subcategory in subcategories
+			li(class='mobile-navigation-main__subitem')
+				a(href=subcategory.url)= subcategory.name
+
+//- Миксин для мобильного меню страница Каталог
+mixin menuMobile(items, ulClass, liClass, aClass)
+	ul(class=ulClass)
+		each item in items
+			li(class=liClass)
+				a(class=aClass href=item.url)= item.title
 
 //- Mиксин для кнопки
 mixin button(text='Кнопка', className='button', type='button')
 	button(type=type, class=className)= text
 //-Use +button('Войти через VK', 'vk-login', 'button')
+
+//- Миксин для списка кнопок
+mixin listButton(...items)
+	ol(class='button-list')
+		each item in items
+			li
+				button(class='button' type='button')= item
 
 //- Mиксин для кнопки-ссылки
 mixin link(className, text, href='#')
@@ -25,23 +52,22 @@ mixin list(items, ulClass, liClass)
 //-Use +list(['Пункт 1', 'Пункт 2', 'Пункт 3'], 'my-ul-class', 'my-li-class')
 
 //- Mиксин для категории и подкатегорий каталога
-
 mixin categoryList (categories)
 	ul(class='category__list')
-		each category in categories 
+		each category in categories
 			li(class='category__item')
 				h3(class='category__title')= Object.keys(category)[0]
 					ul(class='sub-category__list')
 						each subcategory in category[Object.keys(category)[0]]
 							li(class='sub-category__list')
 								a(class='sub-category__link', href=subcategory.url)= subcategory.name
-
 mixin menuFooterSubCategories(subcategories)
 	ul(class='menu-footer__sub-list')
 		each subcategory in subcategories
 			li(class='menu-footer__sub-item')
 				a(href=subcategory.url)= subcategory.name
 
+//- Миксин для изображений
 mixin img(className, src, alt, width, height, ext)
 	picture
 		source(type='image/webp' srcset=`${src}@1x.webp 1x, ${src}@2x.webp 2x` media="(min-width: 600px)" width=width height=height)
@@ -82,8 +108,8 @@ mixin firmCheckboxList(firmCheckboxes)
 		each checkbox, index in firmCheckboxes
 			li(class='firm-checkbox__item')
 				label(class='firm-checkbox__label')
-					input(class='firm-checkbox__input', type="checkbox", name='name_' + checkbox.desc, id='id_' + checkbox.desc)
-					|	#{checkbox.desc}
+					input(class='firm-checkbox__input', type="checkbox", name='name_' + checkbox.description, id='id_' + checkbox.description)
+					|	#{checkbox.description}
 					span(class='checkbox__count', id='item_' + index) (#{checkbox.count})
 
 //- Миксин для карточки товара
@@ -113,33 +139,27 @@ mixin productList(products)
 //- Миксин для меню и подменю footer
 mixin menuFooterCategories(categories)
 	ul(class='menu-footer__list')
-		each category in categories 
+		each category in categories
 			li(class='menu-footer__item')
 				h3(class='menu-footer__title')= Object.keys(category)[0]
 					+menuFooterSubCategories(category[Object.keys(category)[0]])
-
 mixin menuFooterSubCategories(subcategories)
 	ul(class='menu-footer__sub-list')
 		each subcategory in subcategories
 			li(class='menu-footer__sub-item')
 				a(href=subcategory.url)= subcategory.name
 
-
-mixin listObject(id, items)
-	ul(class='nav' id=id)
-		each item,key in items
-			li.nav__item= item
-
-//+navObject(navHeaderLinks)
-//mixin navObject(items)
-	ul(class='nav')
-		each item, key in items
-			li.nav__item
-				a(href=`./${key}.html`)= item
-
 //- Миксин для обратной связи в футере
 mixin footerCallback(categories)
 	ul(class='footer__callback-list')
 		each category in categories
 			li(class='footer__callback-item')
+				a(href=category.url)=category.namе
 				a(href=category.url)=category.name
+
+//- Боковое меню для страницы избранное
+mixin asideMenu(categories)
+	ul(class='aside-menu__list')
+		each category in categories
+			li(class='aside-menu__item')
+				a(href=category.url)= category.name

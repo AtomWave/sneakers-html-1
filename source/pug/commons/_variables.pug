@@ -1,8 +1,16 @@
 -
 	var	titlePage = {
 		index: 'Главная страница',
-		catalog: 'Каталог'
+		catalog: 'Каталог',
+		calculator: 'Калькулятор',
+		payment: 'Оформление заказа'
 	}
+
+
+	
+-
+	var isCatalogPage = true;
+
 
 -
 	var navHeader = [
@@ -18,9 +26,65 @@
 			title: 'Оплата и доставка',
 			url: './pages/delivery.html'
 		},
-		{
+		{  
 			title: 'Контакт',
 			url: './pages/contact.html'
+		}
+	]
+
+- 
+	var mobileMenuMain = [
+		{
+			'Основные': [
+				{name: 'Главная страница', url: './index.html'},
+				{name: 'Каталог товаров', url: '#'},
+				{name: 'Калькулятор и индифицатор', url: '#'},
+				{name: 'Контакты', url: '#'}
+			]
+		},
+		{
+			'Каталог': [
+				{name: 'Избранное', url: '#'},
+				{name: 'Корзина товаров', url: '#'}
+			]
+		},
+		{
+			'Личный профиль': [
+				{name: 'Аккаунт', url: '#'},
+				{name: 'История заказов', url: '#'},
+				{name: 'Текущие заказы', url: '#'},
+				{name: 'Партнерская программа', url: '#'}
+			]
+		},
+		{
+			'Доп. разделы': [
+				{name: 'Faq', url: '#'},
+				{name: 'Наши соцсети', url: '#'}
+			]
+		}
+	]
+
+-
+	var mobileMenuCatalog = [
+		{
+			title: 'Главная',
+			url: '../index.html'
+		},
+		{
+			title: 'Избранное',
+			url: '#'
+		},
+		{
+			title: 'Каталог',
+			url: './pages/catalog.html'
+		},
+		{
+			title: 'Корзина',
+			url: '#'
+		},
+		{  
+			title: 'Профиль',
+			url: '#'
 		}
 	]
 
@@ -79,14 +143,14 @@
 
 -
 	var firmCheckbox = [
-		{desc: 'Nike', count: 22},
-		{desc: 'Adidas', count: 22},
-		{desc: 'Reebock', count: 22},
-		{desc: 'New Balance', count: 22},
-		{desc: 'Vans', count: 22},
-		{desc: 'Old Older', count: 22},
-		{desc: 'Asics', count: 22},
-		{desc: 'Puma', count: 22}
+		{description: 'Nike', count: 22},
+		{description: 'Adidas', count: 22},
+		{description: 'Reebock', count: 22},
+		{description: 'New Balance', count: 22},
+		{description: 'Vans', count: 22},
+		{description: 'Old Older', count: 22},
+		{description: 'Asics', count: 22},
+		{description: 'Puma', count: 22}
 	]
 
 -
@@ -168,8 +232,12 @@
 		{}
 	]
 
-//- -
-//- 	var basketCardProduct = [
-//- 		{img: '#'},
-//- 		{name}
-//- 	]
+-
+	var asideMenu = [
+		{name: 'История заказов', url: '#'},
+		{name: 'Бонусы', url: '#'},
+		{name: 'Поддержка', url: '#'},
+		{name: 'Настройки профиля', url: '#'},
+		{name: 'Основные настройки', url: '#'},
+		{name: 'Поддержка', url: '#'}
+	]
