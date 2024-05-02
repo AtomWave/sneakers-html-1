@@ -10,6 +10,7 @@ const DATA_NAMES = [
   'Naruto Baruto Ichigo Kurosaki Taylor Swift',
   'You wanna play, let`s play AirBordon',
   'ZXC GUL 1000-7 Dead inside Bottle outside',
+  'Execration by erection x_X_x_Daubi-Daubi_x_X_x',
   'Execration by erection x_X_x_Daubi-Daubi_x_X_x'
 ]
 
