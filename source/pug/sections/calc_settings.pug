@@ -1,0 +1,32 @@
+section.calc_settings
+	h1.calc_settings__title Настройки калькулятора
+	.calc_settings__rate_yuan
+		+inputField('Текущий курс юаня по отношению к рублю', 'number', 'rateYuan', 'rateYuan', '9.19')
+		+button('Изменить', 'button button__rate_yuan--change', 'button')
+		+button('Сохранить', 'button button__rate_yuan--save', 'submit')
+	.calc_settings__delivery_price
+		+inputField('Стоимость доставки за 1 позицию', 'number', 'deliveryPrice', 'deliveryPrice', '1000')
+		+button('Изменить', 'button button__delivery_price--change', 'button')
+		+button('Сохранить', 'button button__delivery_price--save', 'submit')
+	.calc_settings__used_currency
+		h2.used_currency__title Валюты, используемые в калькуляторе
+		.used_currency__currency_name
+			+inputField('Рубль', 'number', 'rusRuble', 'rusRuble', '9.1222')
+			+button('V', 'button button__currency--ok', 'button')
+			+button('Изменить', 'button button__delivery_price--change', 'button')
+			+button('Сохранить', 'button button__delivery_price--save', 'submit')
+		.used_currency__currency_name
+			+inputField('Белоруский рубль', 'belRuble', 'belRuble', 'ruble', '9.1222')
+			+button('V', 'button button__currency--ok', 'button')
+			+button('Изменить', 'button button__delivery_price--change', 'button')
+			+button('Сохранить', 'button button__delivery_price--save', 'submit')
+		.used_currency__currency_name
+			+inputField('Казахский тенге', 'number', 'tenge', 'tenge', '9.1222')
+			+button('V', 'button button__currency--ok', 'button')
+			+button('Изменить', 'button button__delivery_price--change', 'button')
+			+button('Сохранить', 'button button__delivery_price--save', 'submit')
+		.used_currency__currency_name
+			+inputField('Киргизский сом', 'number', 'som', 'som', '9.1222')
+			+button('V', 'button button__currency--ok', 'button')
+			+button('Изменить', 'button button__delivery_price--change', 'button')
+			+button('Сохранить', 'button button__delivery_price--save', 'submit')
