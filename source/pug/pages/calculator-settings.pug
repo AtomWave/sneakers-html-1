@@ -4,14 +4,13 @@ block mixins
 	include ./../commons/_mixins.pug
 
 block head
-	title= titlePage.contact
+	title= titlePage.calc_settings
 block header
 	include ./../layout/header.pug
 block content
 	main.main
-		include ./../sections/contact-us.pug
-		include ./../sections/modal_contact-us.pug
-		include ./../sections/modal_faq.pug
+		include ./../sections/calc_settings_user_menu.pug
+		include ./../sections/calc_settings.pug
 block footer
 	include ./../layout/footer.pug
 block scripts

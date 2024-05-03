@@ -1,17 +1,16 @@
 include ./../commons/_variables.pug
 doctype html
-html(lang="en")
+html.page(lang="ru")
 	head
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(href="./css/style.min.css", rel="stylesheet")
 		block head
 
-	body
+	body.page__body
 		block variables
 		block mixins
 		block header
-		//block user
 		block content
 		block footer
 		block scripts

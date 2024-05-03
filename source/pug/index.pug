@@ -1,6 +1,8 @@
 extends ./layout/main.pug
 block variables
 	include ./commons/_variables.pug
+	- var isIndexPage = true
+
 block mixins
 	include ./commons/_mixins.pug
 
@@ -8,6 +10,7 @@ block head
 	title= titlePage.index
 block header
 	include ./layout/header.pug
+	include ./sections/registration-modal.pug
 block content
 	main.main
 		include ./sections/intro.pug

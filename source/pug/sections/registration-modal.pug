@@ -1,0 +1,9 @@
+div.registration-modal.hidden
+	form(action="#" method='post' id="registration-form").registration-modal__form
+		h2.registration-modal__title Регистрация
+		input(class="registration-modal__input" type="text" name="name" id="name" placeholder="Имя Фамилия" required)
+		input(class="registration-modal__input" type="email" name="email" id="email" placeholder="Ваш email" required)
+		input(class="registration-modal__input-image-upload" type="file" name="image-upload" id="image-upload")
+		div.registration-modal__error-mesage.hidden
+		img(class="registration-modal__image-preview" src='' alt='Превью изображения' width='100' height='100')
+		+button('Отправить', 'registration-modal__button button', 'submit')
