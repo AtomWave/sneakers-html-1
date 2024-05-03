@@ -20,8 +20,8 @@ const DATA_STOCK_STATUSES = [
 ]
 
 const DATA_PRODUCT_STATUSES = [
-  true,
-  false
+  'New',
+  'Sale'
 ]
 
 const DATA_PRODUCT_DESCRIPTION = [
@@ -79,14 +79,14 @@ const DATA_IMAGES = [
 ]
 
 //Функция создания числа из диапазона чисел
-function createRandomNumber(min, max) {
+function createRandomNumber (min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 //Cортировка размеров
-function getSizesArray(sizesArray) {
+function getSizesArray (sizesArray) {
   const arrayLength = createRandomNumber(1, sizesArray.length - 1);
   const noRepeatIndex = createRandomNoRepeatInteger(0, sizesArray.length - 1);
   const newArray = [];
@@ -107,7 +107,7 @@ function sortingSizesArray(a, b) {
 const getRandomArrayElement = (elements) => elements[createRandomNumber(0, elements.length - 1)];
 
 // Создание уникального не повторяющего числа
-function createRandomNoRepeatInteger(min, max) {
+function createRandomNoRepeatInteger (min, max) {
   const idValue = [];
   return function () {
     let currentValue = createRandomNumber (min, max);
@@ -122,7 +122,17 @@ function createRandomNoRepeatInteger(min, max) {
   };
 };
 
+function createImagesArray(imagesArray) {
+  let images = [];
+  let imagesIndex = IMAGES_ARRAY_INDEX();
+  for(let i = 0; createRandomNumber(1, imagesArray.length) > i; i++) {
+    images[i] = imagesArray[imagesIndex];
+  }
+  return images;
+}
+
 const DATA_ID  = createRandomNoRepeatInteger(1, DATA_IMAGES.length);
+const IMAGES_ARRAY_INDEX = createRandomNoRepeatInteger(0, (DATA_IMAGES.length - 1));
 
 const createData = () => {
   const data = {
@@ -134,7 +144,7 @@ const createData = () => {
     brend: getRandomArrayElement(DATA_BREND_NAMES),
     cost: getRandomArrayElement(DATA_COSTS),
     oldCost: getRandomArrayElement(DATA_OLD_COSTS),
-    images: getRandomArrayElement(DATA_IMAGES),
+    images: createImagesArray(DATA_IMAGES),
     sizes: getSizesArray(DATA_SIZES),
     status: getRandomArrayElement(DATA_PRODUCT_STATUSES),
     stockStatus: getRandomArrayElement(DATA_STOCK_STATUSES)
@@ -143,4 +153,3 @@ const createData = () => {
 }
 
 export const DATA = Array.from({length: DATA_IMAGES.length}, createData);
-
